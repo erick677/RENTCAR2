@@ -1,0 +1,609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="rentcar4Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Clasevehiculo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Clase" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="contrato">
+          <Key>
+            <PropertyRef Name="ContratoId" />
+          </Key>
+          <Property Name="ContratoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="30" />
+          <Property Name="Apellido" Type="varchar" MaxLength="40" />
+          <Property Name="Pais" Type="varchar" MaxLength="70" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="40" />
+          <Property Name="Direccion" Type="varchar" MaxLength="70" />
+          <Property Name="Telefono" Type="varchar" MaxLength="25" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Licencia" Type="varchar" MaxLength="20" />
+          <Property Name="FK_Vehiculo" Type="int" />
+          <Property Name="idClase" Type="int" />
+          <Property Name="Combustible_Salida" Type="varchar" MaxLength="15" />
+          <Property Name="Combustible_Entrada" Type="varchar" MaxLength="15" />
+          <Property Name="Kilometraje_Salida" Type="varchar" MaxLength="40" />
+          <Property Name="Kilometraje_Entrada" Type="varchar" MaxLength="40" />
+          <Property Name="costo_dia" Type="money" />
+          <Property Name="Cantidad_Dias" Type="int" />
+          <Property Name="costo_diasextras" Type="money" />
+          <Property Name="Dias_Extras" Type="int" />
+          <Property Name="recargo" Type="money" />
+          <Property Name="Descuento_Comision" Type="money" />
+          <Property Name="subtotal" Type="money" />
+          <Property Name="Total" Type="money" />
+          <Property Name="FormaPago" Type="varchar" MaxLength="30" />
+          <Property Name="Contrato" Type="varchar" MaxLength="30" />
+          <Property Name="Fecha_Inicio" Type="datetime" />
+          <Property Name="Fecha_Cierre" Type="datetime" />
+          <Property Name="Condiciones" Type="varchar" MaxLength="100" />
+          <Property Name="Tipo_Renta" Type="varchar" MaxLength="30" />
+          <Property Name="Estatus" Type="varchar" MaxLength="40" />
+          <Property Name="Referido" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="contratohistory">
+          <Key>
+            <PropertyRef Name="Historialid" />
+          </Key>
+          <Property Name="Historialid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContratoId" Type="varchar" MaxLength="70" />
+          <Property Name="Nombre" Type="varchar" MaxLength="30" />
+          <Property Name="Apellido" Type="varchar" MaxLength="40" />
+          <Property Name="Pais" Type="varchar" MaxLength="70" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="40" />
+          <Property Name="Direccion" Type="varchar" MaxLength="70" />
+          <Property Name="Telefono" Type="varchar" MaxLength="25" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Licencia" Type="varchar" MaxLength="20" />
+          <Property Name="FK_Vehiculo" Type="varchar" MaxLength="70" />
+          <Property Name="idClase" Type="varchar" MaxLength="70" />
+          <Property Name="Combustible_Salida" Type="varchar" MaxLength="15" />
+          <Property Name="Combustible_Entrada" Type="varchar" MaxLength="15" />
+          <Property Name="Kilometraje_Salida" Type="varchar" MaxLength="40" />
+          <Property Name="Kilometraje_Entrada" Type="varchar" MaxLength="40" />
+          <Property Name="costo_dia" Type="varchar" MaxLength="70" />
+          <Property Name="Cantidad_Dias" Type="varchar" MaxLength="70" />
+          <Property Name="costo_diasextras" Type="varchar" MaxLength="70" />
+          <Property Name="Dias_Extras" Type="varchar" MaxLength="70" />
+          <Property Name="recargo" Type="varchar" MaxLength="70" />
+          <Property Name="Descuento_Comision" Type="varchar" MaxLength="70" />
+          <Property Name="subtotal" Type="varchar" MaxLength="70" />
+          <Property Name="Total" Type="varchar" MaxLength="70" />
+          <Property Name="FormaPago" Type="varchar" MaxLength="30" />
+          <Property Name="Contrato" Type="varchar" MaxLength="30" />
+          <Property Name="Fecha_Inicio" Type="varchar" MaxLength="70" />
+          <Property Name="Fecha_Cierre" Type="varchar" MaxLength="70" />
+          <Property Name="Condiciones" Type="varchar" MaxLength="100" />
+          <Property Name="Tipo_Renta" Type="varchar" MaxLength="30" />
+          <Property Name="Modelo" Type="varchar" MaxLength="40" />
+          <Property Name="Referido" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="LoginId" />
+          </Key>
+          <Property Name="LoginId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="10" />
+          <Property Name="Password" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="NFC">
+          <Key>
+            <PropertyRef Name="idNFC" />
+          </Key>
+          <Property Name="idNFC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NFC" Type="varchar(max)" />
+          <Property Name="Estatus" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Referido">
+          <Key>
+            <PropertyRef Name="ReferidoId" />
+          </Key>
+          <Property Name="ReferidoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_Referido" Type="int" />
+          <Property Name="FK_NumeroContrato" Type="int" />
+          <Property Name="Comision" Type="varchar" MaxLength="40" />
+          <Property Name="Estatus" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Vehiculo">
+          <Key>
+            <PropertyRef Name="VehiculoId" />
+          </Key>
+          <Property Name="VehiculoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Marca" Type="varchar" MaxLength="30" />
+          <Property Name="Modelo" Type="varchar" MaxLength="40" />
+          <Property Name="Placa" Type="varchar" MaxLength="20" />
+          <Property Name="Chasis" Type="varchar" MaxLength="20" />
+          <Property Name="Año" Type="int" />
+          <Property Name="idClase" Type="int" />
+          <Property Name="Combustible" Type="varchar" MaxLength="15" />
+          <Property Name="Kilometraje" Type="int" />
+          <Property Name="Tarifa" Type="money" />
+          <Property Name="Estatus" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <Association Name="FK__contrato__FK_Veh__46E78A0C">
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="0..1" />
+          <End Role="contrato" Type="Self.contrato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculo">
+              <PropertyRef Name="VehiculoId" />
+            </Principal>
+            <Dependent Role="contrato">
+              <PropertyRef Name="FK_Vehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__contrato__idClas__47DBAE45">
+          <End Role="Clasevehiculo" Type="Self.Clasevehiculo" Multiplicity="0..1" />
+          <End Role="contrato" Type="Self.contrato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clasevehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contrato">
+              <PropertyRef Name="idClase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Referido__Estatu__5535A963">
+          <End Role="contrato" Type="Self.contrato" Multiplicity="0..1" />
+          <End Role="Referido" Type="Self.Referido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contrato">
+              <PropertyRef Name="ContratoId" />
+            </Principal>
+            <Dependent Role="Referido">
+              <PropertyRef Name="FK_Referido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Referido__FK_Num__5629CD9C">
+          <End Role="contrato" Type="Self.contrato" Multiplicity="0..1" />
+          <End Role="Referido" Type="Self.Referido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contrato">
+              <PropertyRef Name="ContratoId" />
+            </Principal>
+            <Dependent Role="Referido">
+              <PropertyRef Name="FK_NumeroContrato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vehiculo__Estatu__3C69FB99">
+          <End Role="Clasevehiculo" Type="Self.Clasevehiculo" Multiplicity="0..1" />
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clasevehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Vehiculo">
+              <PropertyRef Name="idClase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="calculardiasextras" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cerrarcontratos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="rentcar4ModelStoreContainer">
+          <EntitySet Name="Clasevehiculo" EntityType="Self.Clasevehiculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contrato" EntityType="Self.contrato" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contratohistory" EntityType="Self.contratohistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NFC" EntityType="Self.NFC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Referido" EntityType="Self.Referido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__contrato__FK_Veh__46E78A0C" Association="Self.FK__contrato__FK_Veh__46E78A0C">
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+            <End Role="contrato" EntitySet="contrato" />
+          </AssociationSet>
+          <AssociationSet Name="FK__contrato__idClas__47DBAE45" Association="Self.FK__contrato__idClas__47DBAE45">
+            <End Role="Clasevehiculo" EntitySet="Clasevehiculo" />
+            <End Role="contrato" EntitySet="contrato" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Referido__Estatu__5535A963" Association="Self.FK__Referido__Estatu__5535A963">
+            <End Role="contrato" EntitySet="contrato" />
+            <End Role="Referido" EntitySet="Referido" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Referido__FK_Num__5629CD9C" Association="Self.FK__Referido__FK_Num__5629CD9C">
+            <End Role="contrato" EntitySet="contrato" />
+            <End Role="Referido" EntitySet="Referido" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vehiculo__Estatu__3C69FB99" Association="Self.FK__Vehiculo__Estatu__3C69FB99">
+            <End Role="Clasevehiculo" EntitySet="Clasevehiculo" />
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="rentcar4Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Clasevehiculo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Clase" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="contrato" Relationship="Self.FK__contrato__idClas__47DBAE45" FromRole="Clasevehiculo" ToRole="contrato" />
+          <NavigationProperty Name="Vehiculo" Relationship="Self.FK__Vehiculo__Estatu__3C69FB99" FromRole="Clasevehiculo" ToRole="Vehiculo" />
+        </EntityType>
+        <EntityType Name="contrato">
+          <Key>
+            <PropertyRef Name="ContratoId" />
+          </Key>
+          <Property Name="ContratoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Pais" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Licencia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FK_Vehiculo" Type="Int32" />
+          <Property Name="idClase" Type="Int32" />
+          <Property Name="Combustible_Salida" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Combustible_Entrada" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Kilometraje_Salida" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Kilometraje_Entrada" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="costo_dia" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Cantidad_Dias" Type="Int32" />
+          <Property Name="costo_diasextras" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Dias_Extras" Type="Int32" />
+          <Property Name="recargo" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Descuento_Comision" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="subtotal" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Total" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FormaPago" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Contrato1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Inicio" Type="DateTime" Precision="3" />
+          <Property Name="Fecha_Cierre" Type="DateTime" Precision="3" />
+          <Property Name="Condiciones" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo_Renta" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Estatus" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Referido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Clasevehiculo" Relationship="Self.FK__contrato__idClas__47DBAE45" FromRole="contrato" ToRole="Clasevehiculo" />
+          <NavigationProperty Name="Vehiculo" Relationship="Self.FK__contrato__FK_Veh__46E78A0C" FromRole="contrato" ToRole="Vehiculo" />
+          <NavigationProperty Name="Referido1" Relationship="Self.FK__Referido__Estatu__5535A963" FromRole="contrato" ToRole="Referido" />
+          <NavigationProperty Name="Referido2" Relationship="Self.FK__Referido__FK_Num__5629CD9C" FromRole="contrato" ToRole="Referido" />
+        </EntityType>
+        <EntityType Name="contratohistory">
+          <Key>
+            <PropertyRef Name="Historialid" />
+          </Key>
+          <Property Name="Historialid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContratoId" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Pais" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Licencia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FK_Vehiculo" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="idClase" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Combustible_Salida" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Combustible_Entrada" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Kilometraje_Salida" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Kilometraje_Entrada" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="costo_dia" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Cantidad_Dias" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="costo_diasextras" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Dias_Extras" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="recargo" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Descuento_Comision" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="subtotal" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Total" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="FormaPago" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Contrato" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Inicio" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Cierre" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Condiciones" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo_Renta" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Modelo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Referido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="LoginId" />
+          </Key>
+          <Property Name="LoginId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NFC">
+          <Key>
+            <PropertyRef Name="idNFC" />
+          </Key>
+          <Property Name="idNFC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NFC1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Estatus" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Referido">
+          <Key>
+            <PropertyRef Name="ReferidoId" />
+          </Key>
+          <Property Name="ReferidoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_Referido" Type="Int32" />
+          <Property Name="FK_NumeroContrato" Type="Int32" />
+          <Property Name="Comision" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Estatus" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="contrato" Relationship="Self.FK__Referido__Estatu__5535A963" FromRole="Referido" ToRole="contrato" />
+          <NavigationProperty Name="contrato1" Relationship="Self.FK__Referido__FK_Num__5629CD9C" FromRole="Referido" ToRole="contrato" />
+        </EntityType>
+        <EntityType Name="Vehiculo">
+          <Key>
+            <PropertyRef Name="VehiculoId" />
+          </Key>
+          <Property Name="VehiculoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Marca" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Modelo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Placa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Chasis" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Año" Type="Int32" />
+          <Property Name="idClase" Type="Int32" />
+          <Property Name="Combustible" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Kilometraje" Type="Int32" />
+          <Property Name="Tarifa" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Estatus" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Clasevehiculo" Relationship="Self.FK__Vehiculo__Estatu__3C69FB99" FromRole="Vehiculo" ToRole="Clasevehiculo" />
+          <NavigationProperty Name="contrato" Relationship="Self.FK__contrato__FK_Veh__46E78A0C" FromRole="Vehiculo" ToRole="contrato" />
+        </EntityType>
+        <Association Name="FK__contrato__idClas__47DBAE45">
+          <End Role="Clasevehiculo" Type="Self.Clasevehiculo" Multiplicity="0..1" />
+          <End Role="contrato" Type="Self.contrato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clasevehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contrato">
+              <PropertyRef Name="idClase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vehiculo__Estatu__3C69FB99">
+          <End Role="Clasevehiculo" Type="Self.Clasevehiculo" Multiplicity="0..1" />
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clasevehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Vehiculo">
+              <PropertyRef Name="idClase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__contrato__FK_Veh__46E78A0C">
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="0..1" />
+          <End Role="contrato" Type="Self.contrato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculo">
+              <PropertyRef Name="VehiculoId" />
+            </Principal>
+            <Dependent Role="contrato">
+              <PropertyRef Name="FK_Vehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Referido__Estatu__5535A963">
+          <End Role="contrato" Type="Self.contrato" Multiplicity="0..1" />
+          <End Role="Referido" Type="Self.Referido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contrato">
+              <PropertyRef Name="ContratoId" />
+            </Principal>
+            <Dependent Role="Referido">
+              <PropertyRef Name="FK_Referido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Referido__FK_Num__5629CD9C">
+          <End Role="contrato" Type="Self.contrato" Multiplicity="0..1" />
+          <End Role="Referido" Type="Self.Referido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contrato">
+              <PropertyRef Name="ContratoId" />
+            </Principal>
+            <Dependent Role="Referido">
+              <PropertyRef Name="FK_NumeroContrato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="rentcar4Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clasevehiculo" EntityType="Self.Clasevehiculo" />
+          <EntitySet Name="contrato" EntityType="Self.contrato" />
+          <EntitySet Name="contratohistory" EntityType="Self.contratohistory" />
+          <EntitySet Name="Login" EntityType="Self.Login" />
+          <EntitySet Name="NFC" EntityType="Self.NFC" />
+          <EntitySet Name="Referido" EntityType="Self.Referido" />
+          <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" />
+          <AssociationSet Name="FK__contrato__idClas__47DBAE45" Association="Self.FK__contrato__idClas__47DBAE45">
+            <End Role="Clasevehiculo" EntitySet="Clasevehiculo" />
+            <End Role="contrato" EntitySet="contrato" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vehiculo__Estatu__3C69FB99" Association="Self.FK__Vehiculo__Estatu__3C69FB99">
+            <End Role="Clasevehiculo" EntitySet="Clasevehiculo" />
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__contrato__FK_Veh__46E78A0C" Association="Self.FK__contrato__FK_Veh__46E78A0C">
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+            <End Role="contrato" EntitySet="contrato" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Referido__Estatu__5535A963" Association="Self.FK__Referido__Estatu__5535A963">
+            <End Role="contrato" EntitySet="contrato" />
+            <End Role="Referido" EntitySet="Referido" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Referido__FK_Num__5629CD9C" Association="Self.FK__Referido__FK_Num__5629CD9C">
+            <End Role="contrato" EntitySet="contrato" />
+            <End Role="Referido" EntitySet="Referido" />
+          </AssociationSet>
+          <FunctionImport Name="calculardiasextras" />
+          <FunctionImport Name="cerrarcontratos" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="rentcar4ModelStoreContainer" CdmEntityContainer="rentcar4Entities">
+          <EntitySetMapping Name="Clasevehiculo">
+            <EntityTypeMapping TypeName="rentcar4Model.Clasevehiculo">
+              <MappingFragment StoreEntitySet="Clasevehiculo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Clase" ColumnName="Clase" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contrato">
+            <EntityTypeMapping TypeName="rentcar4Model.contrato">
+              <MappingFragment StoreEntitySet="contrato">
+                <ScalarProperty Name="ContratoId" ColumnName="ContratoId" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Licencia" ColumnName="Licencia" />
+                <ScalarProperty Name="FK_Vehiculo" ColumnName="FK_Vehiculo" />
+                <ScalarProperty Name="idClase" ColumnName="idClase" />
+                <ScalarProperty Name="Combustible_Salida" ColumnName="Combustible_Salida" />
+                <ScalarProperty Name="Combustible_Entrada" ColumnName="Combustible_Entrada" />
+                <ScalarProperty Name="Kilometraje_Salida" ColumnName="Kilometraje_Salida" />
+                <ScalarProperty Name="Kilometraje_Entrada" ColumnName="Kilometraje_Entrada" />
+                <ScalarProperty Name="costo_dia" ColumnName="costo_dia" />
+                <ScalarProperty Name="Cantidad_Dias" ColumnName="Cantidad_Dias" />
+                <ScalarProperty Name="costo_diasextras" ColumnName="costo_diasextras" />
+                <ScalarProperty Name="Dias_Extras" ColumnName="Dias_Extras" />
+                <ScalarProperty Name="recargo" ColumnName="recargo" />
+                <ScalarProperty Name="Descuento_Comision" ColumnName="Descuento_Comision" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="FormaPago" ColumnName="FormaPago" />
+                <ScalarProperty Name="Contrato1" ColumnName="Contrato" />
+                <ScalarProperty Name="Fecha_Inicio" ColumnName="Fecha_Inicio" />
+                <ScalarProperty Name="Fecha_Cierre" ColumnName="Fecha_Cierre" />
+                <ScalarProperty Name="Condiciones" ColumnName="Condiciones" />
+                <ScalarProperty Name="Tipo_Renta" ColumnName="Tipo_Renta" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="Referido" ColumnName="Referido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contratohistory">
+            <EntityTypeMapping TypeName="rentcar4Model.contratohistory">
+              <MappingFragment StoreEntitySet="contratohistory">
+                <ScalarProperty Name="Historialid" ColumnName="Historialid" />
+                <ScalarProperty Name="ContratoId" ColumnName="ContratoId" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Licencia" ColumnName="Licencia" />
+                <ScalarProperty Name="FK_Vehiculo" ColumnName="FK_Vehiculo" />
+                <ScalarProperty Name="idClase" ColumnName="idClase" />
+                <ScalarProperty Name="Combustible_Salida" ColumnName="Combustible_Salida" />
+                <ScalarProperty Name="Combustible_Entrada" ColumnName="Combustible_Entrada" />
+                <ScalarProperty Name="Kilometraje_Salida" ColumnName="Kilometraje_Salida" />
+                <ScalarProperty Name="Kilometraje_Entrada" ColumnName="Kilometraje_Entrada" />
+                <ScalarProperty Name="costo_dia" ColumnName="costo_dia" />
+                <ScalarProperty Name="Cantidad_Dias" ColumnName="Cantidad_Dias" />
+                <ScalarProperty Name="costo_diasextras" ColumnName="costo_diasextras" />
+                <ScalarProperty Name="Dias_Extras" ColumnName="Dias_Extras" />
+                <ScalarProperty Name="recargo" ColumnName="recargo" />
+                <ScalarProperty Name="Descuento_Comision" ColumnName="Descuento_Comision" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="FormaPago" ColumnName="FormaPago" />
+                <ScalarProperty Name="Contrato" ColumnName="Contrato" />
+                <ScalarProperty Name="Fecha_Inicio" ColumnName="Fecha_Inicio" />
+                <ScalarProperty Name="Fecha_Cierre" ColumnName="Fecha_Cierre" />
+                <ScalarProperty Name="Condiciones" ColumnName="Condiciones" />
+                <ScalarProperty Name="Tipo_Renta" ColumnName="Tipo_Renta" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Referido" ColumnName="Referido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Login">
+            <EntityTypeMapping TypeName="rentcar4Model.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NFC">
+            <EntityTypeMapping TypeName="rentcar4Model.NFC">
+              <MappingFragment StoreEntitySet="NFC">
+                <ScalarProperty Name="idNFC" ColumnName="idNFC" />
+                <ScalarProperty Name="NFC1" ColumnName="NFC" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Referido">
+            <EntityTypeMapping TypeName="rentcar4Model.Referido">
+              <MappingFragment StoreEntitySet="Referido">
+                <ScalarProperty Name="ReferidoId" ColumnName="ReferidoId" />
+                <ScalarProperty Name="FK_Referido" ColumnName="FK_Referido" />
+                <ScalarProperty Name="FK_NumeroContrato" ColumnName="FK_NumeroContrato" />
+                <ScalarProperty Name="Comision" ColumnName="Comision" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehiculo">
+            <EntityTypeMapping TypeName="rentcar4Model.Vehiculo">
+              <MappingFragment StoreEntitySet="Vehiculo">
+                <ScalarProperty Name="VehiculoId" ColumnName="VehiculoId" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+                <ScalarProperty Name="Chasis" ColumnName="Chasis" />
+                <ScalarProperty Name="Año" ColumnName="Año" />
+                <ScalarProperty Name="idClase" ColumnName="idClase" />
+                <ScalarProperty Name="Combustible" ColumnName="Combustible" />
+                <ScalarProperty Name="Kilometraje" ColumnName="Kilometraje" />
+                <ScalarProperty Name="Tarifa" ColumnName="Tarifa" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="calculardiasextras" FunctionName="rentcar4Model.Store.calculardiasextras" />
+          <FunctionImportMapping FunctionImportName="cerrarcontratos" FunctionName="rentcar4Model.Store.cerrarcontratos" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

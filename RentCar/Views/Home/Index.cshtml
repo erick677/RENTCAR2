@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@if (@ViewBag.alert != null)
+{
+    <div class="col-md-12">
+        <div class="alert alert-warning alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+            <h4><i class="fas fa-exclamation-triangle"></i> Alerta</h4>
+            Advertencia tienes contratos/reservas que han alcanzado su fecha de cierre, a partir de aqui se contarán los días extras
+        </div>
+        @ViewBag.day
+    </div>
+}

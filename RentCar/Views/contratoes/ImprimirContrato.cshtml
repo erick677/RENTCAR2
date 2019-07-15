@@ -1,0 +1,489 @@
+﻿@model RentCar.Models.contrato
+
+@{
+    ViewBag.Title = "ImprimirContrato";
+    Layout = null;
+}
+
+<style>
+    .logo {
+        width: 200px;
+        height: 100px;
+    }
+
+    .logo2 {
+        width: 200px;
+        height: 90px;
+        float: right;
+        margin-top: -153px;
+    }
+
+    .acuerdo {
+        margin-left: 25px;
+        font-style: oblique;
+        font-weight: bold;
+    }
+
+    .lascanas {
+        margin-left: 180px;
+        color: green;
+        font-size: 20px;
+        margin-top: 100px;
+        font-weight: bold;
+    }
+
+    .contrato {
+        margin-left: 340px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .caja1 {
+        margin-top: -25px;
+    }
+
+    .rnc {
+        position: fixed;
+        margin-left: 380px;
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: -150px;
+    }
+
+    .fechas {
+        margin-left: 70%;
+        margin-top: -50px;
+        font-size: 20px;
+    }
+
+    .fecha {
+        font-weight: bold;
+    }
+
+    .table {
+        width: 48%;
+        font-size: 20px;
+    }
+
+    .table2 {
+        margin-left: 445px;
+        margin-top: -340px;
+        position: fixed;
+    }
+
+    .table3 {
+        margin-left: 445px;
+        margin-top: -252px;
+        position: fixed;
+    }
+
+    .table4 {
+        margin-left: 445px;
+        margin-top: -700px;
+        position: fixed;
+    }
+
+    .vehiculo {
+        margin-left: 445px;
+        margin-top: -375px;
+        font-size: 30px;
+        font-weight: bold;
+        position: fixed;
+    }
+
+    tr {
+        height: 40px;
+        text-align: left;
+    }
+
+    .cliente {
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .carros{
+        height: 230px;
+        width: 400px;
+        margin-top: -250px;
+        margin-left: 450px;
+    }
+    .condiciones{
+        width: 48%;
+        text-align: justify;
+        font-size: 15px;
+    }
+    .condicionescontrato{
+       text-align: justify;
+       width: 48%;
+    }
+    .condicionescontrato2{
+       text-align: justify;
+       width: 48%;
+       margin-left: 50%;
+       margin-top: -1255px; 
+    }
+</style>
+
+<img src="~/Content/img/logoRentCar1.png" alt="Alternate Text" class="logo" />
+
+
+
+<label class="lascanas">LAS CANAS</label><br />
+<label class="contrato">CONTRATO YAMAHA</label>
+<br />
+<div class="caja1">
+    <label class="direccion">Fase 1, Plaza Las Canas, Cap Cana</label><br />
+    <label class="acuerdo" style="font-size: 20px;">Acuerdo / Agreement</label>
+</div>
+<div class="rnc">
+    <label>No.: #@Html.DisplayFor(model => model.ContratoId)</label><br />
+    <label>RNC: 130929092</label><br />
+</div>
+
+<img src="~/Content/img/combustible.jpg" alt="Alternate Text" class="logo2" />
+
+<div class="fechas">
+    <dt class="fecha">
+        @Html.DisplayNameFor(model => model.Fecha_Inicio):
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Fecha_Inicio)
+    </dd>
+
+    <dt class="fecha">
+        @Html.DisplayNameFor(model => model.Fecha_Cierre):
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Fecha_Cierre)
+    </dd>
+</div>
+
+
+<div>
+    <hr />
+
+
+    <dl class="dl-horizontal">
+
+        <label class="cliente">DATOS DEL CLIENTE</label>
+
+        <table class="table" border="1">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre):
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Nombre)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Apellido):
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Apellido)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pais):
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Pais)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ciudad):
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Ciudad)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Direccion):
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Direccion)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telefono):
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Telefono)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email):
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Email)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Licencia):
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Licencia)
+                </td>
+            </tr>
+        </table>
+
+        <label class="vehiculo">DATOS DEL VEHICULO</label>
+        <table class="table  table2" border="1">
+            <tr>
+                <th class="marca">
+                    @Html.DisplayNameFor(model => model.Vehiculo.Marca):
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Vehiculo.Marca)
+                </td>
+                <th class="modelo">
+                    @Html.DisplayNameFor(model => model.Vehiculo.Modelo):
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Vehiculo.Modelo)
+                </td>
+            </tr>
+            <tr>
+                <th class="clase">
+                    @Html.DisplayNameFor(model => model.Clasevehiculo.Clase):
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Clasevehiculo.Clase)
+                </td>
+                <th class="placa">
+                    @Html.DisplayNameFor(model => model.Vehiculo.Placa):
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Vehiculo.Placa)
+                </td>
+            </tr>
+        </table>
+        <table class="table  table3" border="1">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Vehiculo.Año):
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Vehiculo.Año)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Combustible_Salida):
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Combustible_Salida)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Combustible_Entrada):
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Combustible_Entrada)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kilometraje_Salida):
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Kilometraje_Salida)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kilometraje_Entrada):
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Kilometraje_Entrada)
+                </td>
+            </tr>
+        </table>
+
+        <h3>Condiciones de uso</h3>
+        <p class="condiciones">
+            -Bajo ninguna circunstancias es permitido conducir el vehiculo bajo influencia alcoholica o de ninguna otra sustancia prohibida. <br />
+            -Usar el cinturon de seguridad en todo momento es estrictamente requerido al conductor igual que a los pasajeros. <br />
+            -El manejo temerario no sera tolerado en ningun momento. <br />
+            -El conductor debe portar licencia de conducir valida y vigente. <br />
+            -No más personas de la capacidad permitida por el carro. <br />
+            -El auto debe de ser devuelto a la misma hora que fue alquilado. De no ser asi, se cobrarán diez dolares ($10 USD) por cada hora extra.
+            Luego de soprepasar las 2 horas será cargado un dia adicional. <br />
+            -El auto debe de ser devuelto con la misma cantidad de combustible que fue alquilado. <br />
+            -Es responsabilidad del cliente devolver el vehículo en la misma condición que le fue rentado. <br />
+            -En caso de un accidente el cliente debe de pagar un deducible del mismo.
+        </p>
+
+        <h3>Terms of use</h3>
+        <p class="condiciones">
+            - Under no circumstances is it allowed to drive the vehicle under
+            Alcoholic influence or any other prohibited substance.<br />
+            -Use the safety belt at all times is strictly
+            It requires the driver as well as the passengers.<br />
+            -The reckless management will not be tolerated at any time.<br />
+            -The driver must carry valid and valid driver's license.<br />
+            -No more people of the capacity allowed by the car.<br />
+            -Elauto must be returned at the same time it was rented. Not
+            Being so, will be charged ten dollars ($ 10 USD) for each extra hour.
+            If the 2 hours is over, an additional day will be charged.<br />
+            -Elauto must be returned with the same amount of fuel as
+            It was rented. <br />
+            -It is the customer's responsibility to return the vehicle in the same
+            condition that was rented.<br />
+            -In case of an accident the customer must pay a deductible from
+            same
+        </p>
+
+        <img src="~/Content/img/carros.png" alt="Alternate Text" class="carros" />
+
+
+        <table class="table table4" border="1">
+            <tr>
+                <th>
+                    @Html.DisplayName("Costo por dia")
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.costo_dia)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cantidad_Dias)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Cantidad_Dias)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dias_Extras)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Dias_Extras)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.recargo)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.recargo)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayName("Descuento")
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Descuento_Comision)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Total)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Total)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FormaPago)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.FormaPago)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayName("Contrato")
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Contrato1)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Condiciones)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Condiciones)
+                </td>
+            </tr>
+        </table>
+        <label>Arrendatario/Cliente/Signature. X.</label>
+        <label>________________________</label>
+
+        <label>&nbsp &nbsp &nbsp &nbsp &nbsp Arrendador. X.</label>
+        <label>________________________________</label>
+
+    </dl>
+</div>
+<p class="condicionescontrato">
+    GOLDNET Rent a car("la arrendadora") arrenda al cliente en el anverso ("el cliente"), el vehículo descrito en el mismo ("el vehículo"),
+    entendiéndose que el arrendamiento comprende no solo el vehículo, sino también los accesorios y equipos, sujetos a los términos y condiciones siguientes:
+    1) El cliente reconoce que ha elegido y recibido a satisfacción el vehículo y que sus características pudieran ser distintas al que haya podido reservar,
+    incluyendo especificaciones técnicas, capacidad y desempeño. 2) El vehículo es propiedad de la arrendadora y se encuentra en óptimas condiciones. El cliente devolverá
+    el vehículo en las mismas condiciones en que lo recibió conforme a la hoja de verificación completada al momento de la entrega, en el lugar y fecha especificados, o,
+    en caso de incumplimiento, cuando fuere requerido por la arrendadora. Si el cliente No devuelve el vehículo en la fecha estipulada, será reportado a las autoridades
+    y se procederá a la interposición de acciones legales, incluyendo radicación de querella por robo y/o abuso de confianza, según el caso, salvo que el incumplimiento
+    del cliente se deba a la imposibilidad demostrable de dar o hacer cumplir los compromisos a los que está obligado, como consecuencia de fuerza mayor o caso fortuito.
+    Si el vehículo sufriere algún daño, el cliente cubrirá el costo de reparación o reemplazo, siendo la arrendadora la única autorizada a realizar estas reparaciones. El
+    cliente no podrá trasladar el vehículo fuera del territorio nacional. El cliente acepta pagar el combustible faltante en caso de devolución del vehículo con una cantidad
+    menor a la que tenía cuando lo rento, más un cargo por servicio conforme a tarifa vigente. Si retorna el vehículo en una oficina distinta a la prevista en el contrato,
+    será sujeto a un cargo por servicio conforme a tarifario de servicios entregado al cliente y disponibles además en las oficinas de la arrendadora. Esta expresamente
+    prohibido fumar y transportar mascotas el vehículo, estableciéndose que si el cliente lo devolviere con olor a tabaco, sedimentos o en condiciones que requieran
+    lavado especial, deberá pagar lavado de interior profundo o tratamiento de ozono, según sea necesario. 3) Bajo ninguna circunstancias el vehículo será usado:
+    a) para transporte de persona o artículos en servicio de alquiler, transporte de bebidas alcohólicas, drogas, explosivos o cualquier actividad ilícita.
+    B) por menores de 21 años de edad, o personas que hayan suministrado datos falsos. C) en carreras o pruebas de velocidad o concursos; d) para empujar o
+    remolcar vehículo o tráiler; e) con exceso de carga del límite de pasajero consignado en la matricula: f) en forma abusiva: g) por cualquier persona que
+    no sea el cliente o chofer con licencia autorizado por el cliente, a condición de que el mismo sea (i) miembro de la familia inmediata del cliente, (ii)
+    empleado del cliente en el curso de un empleo regular y permanente del cliente, lo cual deberá consignarse en el anverso al momento de la apertura del contrato;
+    g) por cualquier persona bajo efecto del alcohol, drogas o sustancias prohibidas, las personas mencionadas deberán tener licencias vigentes para conducir vehículos,
+    sobre la cual no podrá recaer restricciones alguna. 4) La póliza de seguro de responsabilidad civil, cuya copia a sido puesta a disposición del cliente,
+    cubre daños a la propiedad de terceros y daños corporales a terceros ocasionados por el cliente en la conducción del vehículo, siempre que el cliente no haya
+    violado este contrato o las leyes dominicanas. Los límites de la póliza son los mínimos establecidos por las leyes. La póliza establece que el cliente o el
+    chofer del vehículo deben reportar inmediatamente a las autoridades y a la arrendadora la ocurrencia de accidentes, debiendo entregar a la arrendadora y/o al
+    asegurador el acta policial levantada con motivo del accidente, así como los documentos relativo a cualquier reclamación, demanda o actos recibidos por el
+    cliente y/o chofer en relación con tales accidente, dicha póliza requiere que el cliente y/o chofer cooperen con la arrendadora en la defensa de cualquier demanda.
+</p>
+
+
+<p class="condicionescontrato2">
+    GOLDNET Rent a car ("the lessor") renders the customer on the front ("the customer"), the vehicle described therein ("the vehicle"),
+    it being understood that the lease comprises not only the vehicle, but also the accessories and equipment, subject to the following terms and conditions:
+    1) The client acknowledges that he has chosen and received the vehicle to satisfaction and that its characteristics may be different from the ones it may have reserved,
+    including technical specifications, capacity and performance. 2) The vehicle is the property of the lessor and is in optimal condition. The client will return
+    the vehicle in the same condition in which it was received according to the verification sheet completed at the time of delivery, at the place and date specified, or,
+    in case of default, when it is required by the lessor. If the customer does not return the vehicle on the stipulated date, it will be reported to the authorities
+    and legal actions will be filed, including the filing of a complaint for theft and / or breach of trust, as the case may be, except that the breach
+    of the client is due to the demonstrable impossibility of giving or enforcing the commitments to which he is bound, as a consequence of force majeure or fortuitous event.
+    If the vehicle suffers any damage, the client will cover the cost of repair or replacement, being the lessor the only one authorized to perform these repairs. The
+    Client can not move the vehicle outside the national territory. The customer agrees to pay for the missing fuel in case of return of the vehicle with an amount
+    less than the one I had when I rent it, plus a service charge according to the current rate. If you return the vehicle in an office other than that provided for in the contract,
+    will be subject to a service charge in accordance with the service rate delivered to the customer and also available at the offices of the lessor. It is expressly
+    It is forbidden to smoke and transport pets the vehicle, establishing that if the client returns it with a smell of tobacco, sediment or in conditions that require
+    Special washing, you must pay deep inside wash or ozone treatment, as needed. 3) Under no circumstances will the vehicle be used:
+    a) for transportation of person or articles in rental service, transportation of alcoholic beverages, drugs, explosives or any illicit activity.
+    B) by children under 21 years of age, or people who have provided false information. C) in races or speed events or contests; d) to push or
+    tow vehicle or trailer; e) with excess load of the passenger limit consigned in the registration: f) abusively: g) by any person who
+    not be the client or driver licensed by the client, provided that he is (i) member of the client's immediate family, (ii)
+    employee of the client in the course of a regular and permanent employment of the client, which should be recorded on the front when the contract is opened;
+    g) by any person under the influence of alcohol, drugs or prohibited substances, the aforementioned persons must have valid licenses to drive vehicles,
+    upon which no restrictions may be placed. 4) The civil liability insurance policy, whose copy has been made available to the client,
+    covers damage to third-party property and personal injury to third parties caused by the customer when driving the vehicle, provided that the customer has not
+    violated this contract or Dominican laws. The limits of the policy are the minimum established by law. The policy establishes that the client or the
+    The driver of the vehicle must immediately report to the authorities and the lessor the occurrence of accidents, and must deliver them to the lessor and / or
+    insurer the police report issued on the occasion of the accident, as well as the documents related to any claim, demand or acts received by the
+    Client and / or driver in relation to such accident, said policy requires that the client and / or driver cooperate with the lessor in the defense of any claim.
+</p>
+

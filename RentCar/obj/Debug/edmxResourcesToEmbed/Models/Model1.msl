@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="rentcar4ModelStoreContainer" CdmEntityContainer="rentcar4Entities">
+    <EntitySetMapping Name="Clasevehiculo">
+      <EntityTypeMapping TypeName="rentcar4Model.Clasevehiculo">
+        <MappingFragment StoreEntitySet="Clasevehiculo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Clase" ColumnName="Clase" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contrato">
+      <EntityTypeMapping TypeName="rentcar4Model.contrato">
+        <MappingFragment StoreEntitySet="contrato">
+          <ScalarProperty Name="ContratoId" ColumnName="ContratoId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Licencia" ColumnName="Licencia" />
+          <ScalarProperty Name="FK_Vehiculo" ColumnName="FK_Vehiculo" />
+          <ScalarProperty Name="idClase" ColumnName="idClase" />
+          <ScalarProperty Name="Combustible_Salida" ColumnName="Combustible_Salida" />
+          <ScalarProperty Name="Combustible_Entrada" ColumnName="Combustible_Entrada" />
+          <ScalarProperty Name="Kilometraje_Salida" ColumnName="Kilometraje_Salida" />
+          <ScalarProperty Name="Kilometraje_Entrada" ColumnName="Kilometraje_Entrada" />
+          <ScalarProperty Name="costo_dia" ColumnName="costo_dia" />
+          <ScalarProperty Name="Cantidad_Dias" ColumnName="Cantidad_Dias" />
+          <ScalarProperty Name="costo_diasextras" ColumnName="costo_diasextras" />
+          <ScalarProperty Name="Dias_Extras" ColumnName="Dias_Extras" />
+          <ScalarProperty Name="recargo" ColumnName="recargo" />
+          <ScalarProperty Name="Descuento_Comision" ColumnName="Descuento_Comision" />
+          <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="FormaPago" ColumnName="FormaPago" />
+          <ScalarProperty Name="Contrato1" ColumnName="Contrato" />
+          <ScalarProperty Name="Fecha_Inicio" ColumnName="Fecha_Inicio" />
+          <ScalarProperty Name="Fecha_Cierre" ColumnName="Fecha_Cierre" />
+          <ScalarProperty Name="Condiciones" ColumnName="Condiciones" />
+          <ScalarProperty Name="Tipo_Renta" ColumnName="Tipo_Renta" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Referido" ColumnName="Referido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contratohistory">
+      <EntityTypeMapping TypeName="rentcar4Model.contratohistory">
+        <MappingFragment StoreEntitySet="contratohistory">
+          <ScalarProperty Name="Historialid" ColumnName="Historialid" />
+          <ScalarProperty Name="ContratoId" ColumnName="ContratoId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Licencia" ColumnName="Licencia" />
+          <ScalarProperty Name="FK_Vehiculo" ColumnName="FK_Vehiculo" />
+          <ScalarProperty Name="idClase" ColumnName="idClase" />
+          <ScalarProperty Name="Combustible_Salida" ColumnName="Combustible_Salida" />
+          <ScalarProperty Name="Combustible_Entrada" ColumnName="Combustible_Entrada" />
+          <ScalarProperty Name="Kilometraje_Salida" ColumnName="Kilometraje_Salida" />
+          <ScalarProperty Name="Kilometraje_Entrada" ColumnName="Kilometraje_Entrada" />
+          <ScalarProperty Name="costo_dia" ColumnName="costo_dia" />
+          <ScalarProperty Name="Cantidad_Dias" ColumnName="Cantidad_Dias" />
+          <ScalarProperty Name="costo_diasextras" ColumnName="costo_diasextras" />
+          <ScalarProperty Name="Dias_Extras" ColumnName="Dias_Extras" />
+          <ScalarProperty Name="recargo" ColumnName="recargo" />
+          <ScalarProperty Name="Descuento_Comision" ColumnName="Descuento_Comision" />
+          <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="FormaPago" ColumnName="FormaPago" />
+          <ScalarProperty Name="Contrato" ColumnName="Contrato" />
+          <ScalarProperty Name="Fecha_Inicio" ColumnName="Fecha_Inicio" />
+          <ScalarProperty Name="Fecha_Cierre" ColumnName="Fecha_Cierre" />
+          <ScalarProperty Name="Condiciones" ColumnName="Condiciones" />
+          <ScalarProperty Name="Tipo_Renta" ColumnName="Tipo_Renta" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="Referido" ColumnName="Referido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Login">
+      <EntityTypeMapping TypeName="rentcar4Model.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NFC">
+      <EntityTypeMapping TypeName="rentcar4Model.NFC">
+        <MappingFragment StoreEntitySet="NFC">
+          <ScalarProperty Name="idNFC" ColumnName="idNFC" />
+          <ScalarProperty Name="NFC1" ColumnName="NFC" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Referido">
+      <EntityTypeMapping TypeName="rentcar4Model.Referido">
+        <MappingFragment StoreEntitySet="Referido">
+          <ScalarProperty Name="ReferidoId" ColumnName="ReferidoId" />
+          <ScalarProperty Name="FK_Referido" ColumnName="FK_Referido" />
+          <ScalarProperty Name="FK_NumeroContrato" ColumnName="FK_NumeroContrato" />
+          <ScalarProperty Name="Comision" ColumnName="Comision" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehiculo">
+      <EntityTypeMapping TypeName="rentcar4Model.Vehiculo">
+        <MappingFragment StoreEntitySet="Vehiculo">
+          <ScalarProperty Name="VehiculoId" ColumnName="VehiculoId" />
+          <ScalarProperty Name="Marca" ColumnName="Marca" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="Placa" ColumnName="Placa" />
+          <ScalarProperty Name="Chasis" ColumnName="Chasis" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="idClase" ColumnName="idClase" />
+          <ScalarProperty Name="Combustible" ColumnName="Combustible" />
+          <ScalarProperty Name="Kilometraje" ColumnName="Kilometraje" />
+          <ScalarProperty Name="Tarifa" ColumnName="Tarifa" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="calculardiasextras" FunctionName="rentcar4Model.Store.calculardiasextras" />
+    <FunctionImportMapping FunctionImportName="cerrarcontratos" FunctionName="rentcar4Model.Store.cerrarcontratos" />
+  </EntityContainerMapping>
+</Mapping>

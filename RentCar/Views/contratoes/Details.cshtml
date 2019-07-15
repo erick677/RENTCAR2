@@ -1,0 +1,226 @@
+﻿@model RentCar.Models.contrato
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>contrato</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pais)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pais)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ciudad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ciudad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Licencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Licencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Combustible_Salida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Combustible_Salida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Combustible_Entrada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Combustible_Entrada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kilometraje_Salida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kilometraje_Salida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kilometraje_Entrada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kilometraje_Entrada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cantidad_Dias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cantidad_Dias)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dias_Extras)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dias_Extras)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descuento_Comision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descuento_Comision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FormaPago)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FormaPago)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contrato1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contrato1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Inicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Inicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Cierre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Cierre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Condiciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Condiciones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo_Renta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo_Renta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Referido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Referido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clasevehiculo.Clase)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clasevehiculo.Clase)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehiculo.Marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehiculo.Marca)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ContratoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

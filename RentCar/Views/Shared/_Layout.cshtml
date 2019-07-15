@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Punta Cana Destino</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    @Styles.Render("~/Content/vendor/fontawesome-free/css/all.min.css")
+    @Styles.Render("~/Content/vendor/datatables/dataTables.bootstrap4.css")
+    @Styles.Render("~/Content/css/sb-admin.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        .logo {
+            width: 180px;
+            height: 50px;
+        }
+    </style>
+    <style>
+
+
+        .table {
+            display: block;
+            overflow-x: scroll;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+
+
+</head>
+<body id="page-top">
+
+
+
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+        <a class="navbar-brand mr-1" href="@Url.Action("Index", "Home")"><img src="~/Content/img/logoRentCar1.png" class="logo" /></a>
+        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+            <i class="fas fa-bars"></i>
+        </button>
+
+
+
+    </nav>
+    <div id="wrapper">
+
+
+
+        <!-- Sidebar -->
+        <ul class="sidebar navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="@Url.Action("Index", "Home")">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Mantenimientos</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+                    @Html.ActionLink("Contratos", "Index", "contratoes", null, new { @class = "dropdown-item" })
+                    @Html.ActionLink("Vehiculos", "Index", "Vehiculoes", null, new { @class = "dropdown-item" })
+
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Informes de Contratos</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+                    @Html.ActionLink("Contratos", "Contratos", "contratoes", null, new { @class = "dropdown-item" })
+                    @Html.ActionLink("Pendientes", "ContratosQueHanCumplido", "contratoes", null, new { @class = "dropdown-item" })
+                    @Html.ActionLink("Contratos Cerrados", "contratoscerrados", "contratoes", null, new { @class = "dropdown-item" })
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Informes de Reservas</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+                    @Html.ActionLink("Reservas", "Reservas", "contratoes", null, new { @class = "dropdown-item" })
+                    @Html.ActionLink("Pendientes", "ReservasQueHanCumplido", "contratoes", null, new { @class = "dropdown-item" })
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Vehiculos</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+                    @Html.ActionLink("Disponibles", "VehiculoDisponible", "Vehiculoes", null, new { @class = "dropdown-item" })
+                    @Html.ActionLink("Rentados", "VehiculoRentado", "Vehiculoes", null, new { @class = "dropdown-item" })
+                    @Html.ActionLink("Mantenimiento", "VehiculoMantenimiento", "Vehiculoes", null, new { @class = "dropdown-item" })
+                </div>
+            </li>
+
+
+
+
+            @Html.ActionLink("LogOut", "Logout", "Logins", null, new { @class = "btn btn-danger" })
+
+
+        </ul>
+
+        <div id="content-wrapper">
+            @RenderBody()
+
+
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/Content/vendor/jquery/jquery.min.js")
+    @Scripts.Render("~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js")
+    @Scripts.Render("~/Content/vendor/jquery-easing/jquery.easing.min.js")
+    @Scripts.Render("~/Content/vendor/chart.js/Chart.min.js")
+    @Scripts.Render("~/Content/vendor/datatables/jquery.dataTables.js")
+    @Scripts.Render("~/Content/vendor/datatables/dataTables.bootstrap4.js")
+    @Scripts.Render("~/Content/js/sb-admin.min.js")
+    @Scripts.Render("~/Content/js/demo/datatables-demo.js")
+    @Scripts.Render("~/Content/js/demo/chart-area-demo.js")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script src="~/Scripts/printThis.js"></script>
+</body>
+</html>
