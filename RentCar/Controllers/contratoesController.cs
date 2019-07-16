@@ -139,7 +139,7 @@ namespace RentCar.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ContratoId,Nombre,Apellido,Pais,Ciudad,Direccion,Telefono,Email,Licencia,FK_Vehiculo,idClase,Combustible_Salida,Combustible_Entrada,Kilometraje_Salida,Kilometraje_Entrada,costo_dia,Cantidad_Dias,costo_diasextras,Dias_Extras,Descuento_Comision,FormaPago,Contrato1,Fecha_Inicio,Fecha_Cierre,Condiciones,Tipo_Renta,Estatus,Referido,subtotal,Total,recargo")] contrato contrato)
+        public ActionResult Create([Bind(Include = "ContratoId,Nombre,Apellido,Pais,Ciudad,Direccion,Telefono,Email,Licencia,FK_Vehiculo,idClase,Combustible_Salida,Combustible_Entrada,Kilometraje_Salida,Kilometraje_Entrada,costo_dia,Cantidad_Dias,costo_diasextras,Dias_Extras,Descuento_Comision,FormaPago,Contrato1,Fecha_Inicio,Fecha_Cierre,Condiciones,Tipo_Renta,Estatus,Referido,subtotal,total,recargo")] contrato contrato)
         {
             if (contrato.Tipo_Renta == "Contrato")
             {
@@ -153,7 +153,6 @@ namespace RentCar.Controllers
             {
                 db.contrato.Add(contrato);
                 contrato.Estatus = "Abierto";
-                contrato.subtotal = contrato.Total;
                 contrato.recargo = 0;
                 contrato.Dias_Extras = 0;
                 db.SaveChanges();

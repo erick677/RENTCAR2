@@ -316,9 +316,13 @@
             var s = document.getElementById("Cantidad_Dias").value;
             if (s == 0 || m==0) {
                 document.getElementById("subtotal").value = 0;
+                document.getElementById("Total").value = 0;
+
             } else {
                 var t = parseInt(m) * parseInt(s);
                 document.getElementById("subtotal").value = t;
+                document.getElementById("Total").value = t;
+
             }
             
         })
@@ -329,9 +333,13 @@
             var s = document.getElementById("Cantidad_Dias").value;
             if (s == 0 || m==0) {
                 document.getElementById("subtotal").value = 0;
+                document.getElementById("Total").value = 0;
+
             } else {
                 var t = parseInt(m) * parseInt(s);
                 document.getElementById("subtotal").value = t;
+                document.getElementById("Total").value = t;
+
             }
 
         })
@@ -339,12 +347,12 @@
     $(document).ready(function () {
         $("#Descuento_Comision").focusout(function () {
             var m = document.getElementById("Descuento_Comision").value;
-            var s = document.getElementById("subtotal").value;
+            var s = document.getElementById("Total").value;
             if (m == 0) {
-                document.getElementById("subtotal").value = s;
+                document.getElementById("Total").value = s;
             } else {
                 var t = parseInt(s) - parseInt(m);
-                document.getElementById("subtotal").value = t;
+                document.getElementById("Total").value = t;
             }
 
         })

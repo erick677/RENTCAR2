@@ -122,7 +122,7 @@
     <Property Name="Tarifa" Type="money" />
     <Property Name="Estatus" Type="varchar" MaxLength="15" />
   </EntityType>
-  <Association Name="FK__contrato__FK_Veh__46E78A0C">
+  <Association Name="FK__contrato__FK_Veh__4D94879B">
     <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="0..1" />
     <End Role="contrato" Type="Self.contrato" Multiplicity="*" />
     <ReferentialConstraint>
@@ -134,7 +134,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__contrato__idClas__47DBAE45">
+  <Association Name="FK__contrato__idClas__4E88ABD4">
     <End Role="Clasevehiculo" Type="Self.Clasevehiculo" Multiplicity="0..1" />
     <End Role="contrato" Type="Self.contrato" Multiplicity="*" />
     <ReferentialConstraint>
@@ -146,7 +146,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Referido__Estatu__5535A963">
+  <Association Name="FK__Referido__Estatu__5441852A">
     <End Role="contrato" Type="Self.contrato" Multiplicity="0..1" />
     <End Role="Referido" Type="Self.Referido" Multiplicity="*" />
     <ReferentialConstraint>
@@ -158,7 +158,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Referido__FK_Num__5629CD9C">
+  <Association Name="FK__Referido__FK_Num__5535A963">
     <End Role="contrato" Type="Self.contrato" Multiplicity="0..1" />
     <End Role="Referido" Type="Self.Referido" Multiplicity="*" />
     <ReferentialConstraint>
@@ -170,7 +170,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Vehiculo__Estatu__3C69FB99">
+  <Association Name="FK__Vehiculo__Estatu__44FF419A">
     <End Role="Clasevehiculo" Type="Self.Clasevehiculo" Multiplicity="0..1" />
     <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="*" />
     <ReferentialConstraint>
@@ -192,23 +192,23 @@
     <EntitySet Name="NFC" EntityType="Self.NFC" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Referido" EntityType="Self.Referido" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__contrato__FK_Veh__46E78A0C" Association="Self.FK__contrato__FK_Veh__46E78A0C">
+    <AssociationSet Name="FK__contrato__FK_Veh__4D94879B" Association="Self.FK__contrato__FK_Veh__4D94879B">
       <End Role="Vehiculo" EntitySet="Vehiculo" />
       <End Role="contrato" EntitySet="contrato" />
     </AssociationSet>
-    <AssociationSet Name="FK__contrato__idClas__47DBAE45" Association="Self.FK__contrato__idClas__47DBAE45">
+    <AssociationSet Name="FK__contrato__idClas__4E88ABD4" Association="Self.FK__contrato__idClas__4E88ABD4">
       <End Role="Clasevehiculo" EntitySet="Clasevehiculo" />
       <End Role="contrato" EntitySet="contrato" />
     </AssociationSet>
-    <AssociationSet Name="FK__Referido__Estatu__5535A963" Association="Self.FK__Referido__Estatu__5535A963">
+    <AssociationSet Name="FK__Referido__Estatu__5441852A" Association="Self.FK__Referido__Estatu__5441852A">
       <End Role="contrato" EntitySet="contrato" />
       <End Role="Referido" EntitySet="Referido" />
     </AssociationSet>
-    <AssociationSet Name="FK__Referido__FK_Num__5629CD9C" Association="Self.FK__Referido__FK_Num__5629CD9C">
+    <AssociationSet Name="FK__Referido__FK_Num__5535A963" Association="Self.FK__Referido__FK_Num__5535A963">
       <End Role="contrato" EntitySet="contrato" />
       <End Role="Referido" EntitySet="Referido" />
     </AssociationSet>
-    <AssociationSet Name="FK__Vehiculo__Estatu__3C69FB99" Association="Self.FK__Vehiculo__Estatu__3C69FB99">
+    <AssociationSet Name="FK__Vehiculo__Estatu__44FF419A" Association="Self.FK__Vehiculo__Estatu__44FF419A">
       <End Role="Clasevehiculo" EntitySet="Clasevehiculo" />
       <End Role="Vehiculo" EntitySet="Vehiculo" />
     </AssociationSet>
