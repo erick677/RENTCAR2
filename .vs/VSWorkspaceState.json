@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\RentCar",
+    "\\RentCar\\Views"
   ],
+  "SelectedNode": "\\RentCar.sln",
   "PreviewInSolutionExplorer": false
 }
