@@ -21,7 +21,7 @@ namespace RentCar.Controllers
             var contrato = db.contrato.Include(c => c.Clasevehiculo).Include(c => c.Vehiculo);
             return View(contrato.ToList());
         }
-
+        /*-----------------Contratos----------------------------------------*/
         public ActionResult ImprimirContrato(int? id)
         {
             if (id == null)
@@ -39,6 +39,38 @@ namespace RentCar.Controllers
         public ActionResult Pdf(int? id)
         {
             return new ActionAsPdf("ImprimirContrato", new { id = id });
+        }
+        /*--------------Facturas-----------------------------------------*/
+        public ActionResult ImprimirFactura(int? id)
+        {
+            contrato contrato2 = db.contrato.Find(id);
+
+
+            var subtotal = Convert.ToDecimal(contrato2.Total);
+            var itbis = Convert.ToDecimal(1.18);
+
+            var total = subtotal * itbis;
+
+            Double doubl = Math.Round((Double)total, 2);
+
+            ViewBag.Total = doubl;
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            contrato contrato = db.contrato.Find(id);
+            if (contrato == null )
+            {
+                return HttpNotFound();
+            }
+
+            return View(contrato);
+        }
+        
+        public ActionResult PdfFactura(int? id)
+        {
+            return new ActionAsPdf("ImprimirFactura", new { id = id });
         }
 
 

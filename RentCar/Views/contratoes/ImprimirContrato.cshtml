@@ -352,7 +352,7 @@
                     @Html.DisplayName("Costo por dia")
                 </th>
                 <td>
-                    @Html.DisplayFor(model => model.costo_dia)
+                    @Html.DisplayFor(model => model.costo_dia) $USD
                 </td>
             </tr>
             <tr>
@@ -361,6 +361,22 @@
                 </th>
                 <td>
                     @Html.DisplayFor(model => model.Cantidad_Dias)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayName("SubTotal")
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.subtotal) $USD
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayName("Descuento")
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Descuento_Comision)  $USD
                 </td>
             </tr>
             <tr>
@@ -376,15 +392,7 @@
                     @Html.DisplayNameFor(model => model.recargo)
                 </th>
                 <td>
-                    @Html.DisplayFor(model => model.recargo)
-                </td>
-            </tr>
-            <tr>
-                <th>
-                    @Html.DisplayName("Descuento")
-                </th>
-                <td>
-                    @Html.DisplayFor(model => model.Descuento_Comision)
+                    @Html.DisplayFor(model => model.recargo) $USD
                 </td>
             </tr>
             <tr>
@@ -392,7 +400,7 @@
                     @Html.DisplayNameFor(model => model.Total)
                 </th>
                 <td>
-                    @Html.DisplayFor(model => model.Total)
+                    @Html.DisplayFor(model => model.Total) $USD
                 </td>
             </tr>
             <tr>
