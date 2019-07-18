@@ -30,6 +30,7 @@ namespace RentCar.Models
         public virtual DbSet<Clasevehiculo> Clasevehiculo { get; set; }
         public virtual DbSet<contrato> contrato { get; set; }
         public virtual DbSet<contratohistory> contratohistory { get; set; }
+        public virtual DbSet<Facturas> Facturas { get; set; }
         public virtual DbSet<Login> Login { get; set; }
         public virtual DbSet<NFC> NFC { get; set; }
         public virtual DbSet<Referido> Referido { get; set; }

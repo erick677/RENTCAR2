@@ -4,19 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b6bdda1c1b55431fa22bee1f2837bc98" Name="Diagram1">
+      <Diagram DiagramId="952d1aabf2dc4f788de098e204476fe5" Name="Diagram1">
         <EntityTypeShape EntityType="rentcar4Model.Clasevehiculo" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="rentcar4Model.contrato" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="rentcar4Model.contratohistory" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="rentcar4Model.Login" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="rentcar4Model.NFC" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="rentcar4Model.Facturas" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="rentcar4Model.Login" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="rentcar4Model.NFC" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="rentcar4Model.Referido" Width="1.5" PointX="7.5" PointY="10.875" IsExpanded="true" />
         <EntityTypeShape EntityType="rentcar4Model.Vehiculo" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
-        <AssociationConnector Association="rentcar4Model.FK__contrato__idClas__47DBAE45" ManuallyRouted="false" />
-        <AssociationConnector Association="rentcar4Model.FK__Vehiculo__Estatu__3C69FB99" ManuallyRouted="false" />
-        <AssociationConnector Association="rentcar4Model.FK__contrato__FK_Veh__46E78A0C" ManuallyRouted="false" />
-        <AssociationConnector Association="rentcar4Model.FK__Referido__Estatu__5535A963" ManuallyRouted="false" />
-        <AssociationConnector Association="rentcar4Model.FK__Referido__FK_Num__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="rentcar4Model.FK__contrato__idClas__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="rentcar4Model.FK__Vehiculo__Estatu__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="rentcar4Model.FK__contrato__FK_Veh__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="rentcar4Model.FK__Referido__Estatu__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="rentcar4Model.FK__Referido__FK_Num__5441852A" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

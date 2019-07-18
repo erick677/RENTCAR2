@@ -73,6 +73,21 @@ namespace RentCar.Controllers
             return new ActionAsPdf("ImprimirFactura", new { id = id });
         }
 
+        public ActionResult DatosComprobante(int? id)
+        {
+            ViewBag.FK_Vehiculo = new SelectList(db.NFC.Where(a => a.Estatus == "Disponible"));
+
+            return PartialView(new { id = id });
+        }
+
+        [HttpPost]
+        public ActionResult DatosComprobante(string NFC, string rnc, string nombreEmpresa, string direccionEmpresa )
+        {
+
+            ViewBag.FK_Vehiculo = new SelectList(db.NFC.Where(a => a.Estatus == "Disponible"));
+            return View();
+        }
+
 
 
         // GET: contratoes Contratos

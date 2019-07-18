@@ -84,6 +84,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Facturas">
+      <EntityTypeMapping TypeName="rentcar4Model.Facturas">
+        <MappingFragment StoreEntitySet="Facturas">
+          <ScalarProperty Name="idNFC" ColumnName="idNFC" />
+          <ScalarProperty Name="CodigoFactura" ColumnName="CodigoFactura" />
+          <ScalarProperty Name="Factura" ColumnName="Factura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Login">
       <EntityTypeMapping TypeName="rentcar4Model.Login">
         <MappingFragment StoreEntitySet="Login">

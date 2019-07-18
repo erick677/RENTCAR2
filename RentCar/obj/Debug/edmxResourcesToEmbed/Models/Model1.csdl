@@ -6,28 +6,28 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Clase" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="contrato" Relationship="Self.FK__contrato__idClas__47DBAE45" FromRole="Clasevehiculo" ToRole="contrato" />
-    <NavigationProperty Name="Vehiculo" Relationship="Self.FK__Vehiculo__Estatu__3C69FB99" FromRole="Clasevehiculo" ToRole="Vehiculo" />
+    <NavigationProperty Name="contrato" Relationship="Self.FK__contrato__idClas__4F7CD00D" FromRole="Clasevehiculo" ToRole="contrato" />
+    <NavigationProperty Name="Vehiculo" Relationship="Self.FK__Vehiculo__Estatu__4222D4EF" FromRole="Clasevehiculo" ToRole="Vehiculo" />
   </EntityType>
   <EntityType Name="contrato">
     <Key>
       <PropertyRef Name="ContratoId" />
     </Key>
     <Property Name="ContratoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="Apellido" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="Pais" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="Ciudad" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="Direccion" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="Telefono" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Licencia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Pais" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Ciudad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Licencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="FK_Vehiculo" Type="Int32" />
     <Property Name="idClase" Type="Int32" />
     <Property Name="Combustible_Salida" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
     <Property Name="Combustible_Entrada" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-    <Property Name="Kilometraje_Salida" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="Kilometraje_Entrada" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Kilometraje_Salida" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Kilometraje_Entrada" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="costo_dia" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="Cantidad_Dias" Type="Int32" />
     <Property Name="costo_diasextras" Type="Decimal" Precision="19" Scale="4" />
@@ -40,14 +40,14 @@
     <Property Name="Contrato1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="Fecha_Inicio" Type="DateTime" Precision="3" />
     <Property Name="Fecha_Cierre" Type="DateTime" Precision="3" />
-    <Property Name="Condiciones" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Condiciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Tipo_Renta" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="Estatus" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="Referido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Clasevehiculo" Relationship="Self.FK__contrato__idClas__47DBAE45" FromRole="contrato" ToRole="Clasevehiculo" />
-    <NavigationProperty Name="Vehiculo" Relationship="Self.FK__contrato__FK_Veh__46E78A0C" FromRole="contrato" ToRole="Vehiculo" />
-    <NavigationProperty Name="Referido1" Relationship="Self.FK__Referido__Estatu__5535A963" FromRole="contrato" ToRole="Referido" />
-    <NavigationProperty Name="Referido2" Relationship="Self.FK__Referido__FK_Num__5629CD9C" FromRole="contrato" ToRole="Referido" />
+    <Property Name="Referido" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Clasevehiculo" Relationship="Self.FK__contrato__idClas__4F7CD00D" FromRole="contrato" ToRole="Clasevehiculo" />
+    <NavigationProperty Name="Vehiculo" Relationship="Self.FK__contrato__FK_Veh__4E88ABD4" FromRole="contrato" ToRole="Vehiculo" />
+    <NavigationProperty Name="Referido1" Relationship="Self.FK__Referido__Estatu__534D60F1" FromRole="contrato" ToRole="Referido" />
+    <NavigationProperty Name="Referido2" Relationship="Self.FK__Referido__FK_Num__5441852A" FromRole="contrato" ToRole="Referido" />
   </EntityType>
   <EntityType Name="contratohistory">
     <Key>
@@ -86,6 +86,14 @@
     <Property Name="Modelo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
     <Property Name="Referido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
   </EntityType>
+  <EntityType Name="Facturas">
+    <Key>
+      <PropertyRef Name="idNFC" />
+    </Key>
+    <Property Name="idNFC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoFactura" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Factura" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
   <EntityType Name="Login">
     <Key>
       <PropertyRef Name="LoginId" />
@@ -109,30 +117,30 @@
     <Property Name="ReferidoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="FK_Referido" Type="Int32" />
     <Property Name="FK_NumeroContrato" Type="Int32" />
-    <Property Name="Comision" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Comision" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Estatus" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="contrato" Relationship="Self.FK__Referido__Estatu__5535A963" FromRole="Referido" ToRole="contrato" />
-    <NavigationProperty Name="contrato1" Relationship="Self.FK__Referido__FK_Num__5629CD9C" FromRole="Referido" ToRole="contrato" />
+    <NavigationProperty Name="contrato" Relationship="Self.FK__Referido__Estatu__534D60F1" FromRole="Referido" ToRole="contrato" />
+    <NavigationProperty Name="contrato1" Relationship="Self.FK__Referido__FK_Num__5441852A" FromRole="Referido" ToRole="contrato" />
   </EntityType>
   <EntityType Name="Vehiculo">
     <Key>
       <PropertyRef Name="VehiculoId" />
     </Key>
     <Property Name="VehiculoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Marca" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="Modelo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="Placa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="Chasis" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Marca" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Modelo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Placa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Chasis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Año" Type="Int32" />
     <Property Name="idClase" Type="Int32" />
     <Property Name="Combustible" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
     <Property Name="Kilometraje" Type="Int32" />
     <Property Name="Tarifa" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="Estatus" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Clasevehiculo" Relationship="Self.FK__Vehiculo__Estatu__3C69FB99" FromRole="Vehiculo" ToRole="Clasevehiculo" />
-    <NavigationProperty Name="contrato" Relationship="Self.FK__contrato__FK_Veh__46E78A0C" FromRole="Vehiculo" ToRole="contrato" />
+    <NavigationProperty Name="Clasevehiculo" Relationship="Self.FK__Vehiculo__Estatu__4222D4EF" FromRole="Vehiculo" ToRole="Clasevehiculo" />
+    <NavigationProperty Name="contrato" Relationship="Self.FK__contrato__FK_Veh__4E88ABD4" FromRole="Vehiculo" ToRole="contrato" />
   </EntityType>
-  <Association Name="FK__contrato__idClas__47DBAE45">
+  <Association Name="FK__contrato__idClas__4F7CD00D">
     <End Role="Clasevehiculo" Type="Self.Clasevehiculo" Multiplicity="0..1" />
     <End Role="contrato" Type="Self.contrato" Multiplicity="*" />
     <ReferentialConstraint>
@@ -144,7 +152,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Vehiculo__Estatu__3C69FB99">
+  <Association Name="FK__Vehiculo__Estatu__4222D4EF">
     <End Role="Clasevehiculo" Type="Self.Clasevehiculo" Multiplicity="0..1" />
     <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="*" />
     <ReferentialConstraint>
@@ -156,7 +164,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__contrato__FK_Veh__46E78A0C">
+  <Association Name="FK__contrato__FK_Veh__4E88ABD4">
     <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="0..1" />
     <End Role="contrato" Type="Self.contrato" Multiplicity="*" />
     <ReferentialConstraint>
@@ -168,7 +176,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Referido__Estatu__5535A963">
+  <Association Name="FK__Referido__Estatu__534D60F1">
     <End Role="contrato" Type="Self.contrato" Multiplicity="0..1" />
     <End Role="Referido" Type="Self.Referido" Multiplicity="*" />
     <ReferentialConstraint>
@@ -180,7 +188,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Referido__FK_Num__5629CD9C">
+  <Association Name="FK__Referido__FK_Num__5441852A">
     <End Role="contrato" Type="Self.contrato" Multiplicity="0..1" />
     <End Role="Referido" Type="Self.Referido" Multiplicity="*" />
     <ReferentialConstraint>
@@ -196,27 +204,28 @@
     <EntitySet Name="Clasevehiculo" EntityType="Self.Clasevehiculo" />
     <EntitySet Name="contrato" EntityType="Self.contrato" />
     <EntitySet Name="contratohistory" EntityType="Self.contratohistory" />
+    <EntitySet Name="Facturas" EntityType="Self.Facturas" />
     <EntitySet Name="Login" EntityType="Self.Login" />
     <EntitySet Name="NFC" EntityType="Self.NFC" />
     <EntitySet Name="Referido" EntityType="Self.Referido" />
     <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" />
-    <AssociationSet Name="FK__contrato__idClas__47DBAE45" Association="Self.FK__contrato__idClas__47DBAE45">
+    <AssociationSet Name="FK__contrato__idClas__4F7CD00D" Association="Self.FK__contrato__idClas__4F7CD00D">
       <End Role="Clasevehiculo" EntitySet="Clasevehiculo" />
       <End Role="contrato" EntitySet="contrato" />
     </AssociationSet>
-    <AssociationSet Name="FK__Vehiculo__Estatu__3C69FB99" Association="Self.FK__Vehiculo__Estatu__3C69FB99">
+    <AssociationSet Name="FK__Vehiculo__Estatu__4222D4EF" Association="Self.FK__Vehiculo__Estatu__4222D4EF">
       <End Role="Clasevehiculo" EntitySet="Clasevehiculo" />
       <End Role="Vehiculo" EntitySet="Vehiculo" />
     </AssociationSet>
-    <AssociationSet Name="FK__contrato__FK_Veh__46E78A0C" Association="Self.FK__contrato__FK_Veh__46E78A0C">
+    <AssociationSet Name="FK__contrato__FK_Veh__4E88ABD4" Association="Self.FK__contrato__FK_Veh__4E88ABD4">
       <End Role="Vehiculo" EntitySet="Vehiculo" />
       <End Role="contrato" EntitySet="contrato" />
     </AssociationSet>
-    <AssociationSet Name="FK__Referido__Estatu__5535A963" Association="Self.FK__Referido__Estatu__5535A963">
+    <AssociationSet Name="FK__Referido__Estatu__534D60F1" Association="Self.FK__Referido__Estatu__534D60F1">
       <End Role="contrato" EntitySet="contrato" />
       <End Role="Referido" EntitySet="Referido" />
     </AssociationSet>
-    <AssociationSet Name="FK__Referido__FK_Num__5629CD9C" Association="Self.FK__Referido__FK_Num__5629CD9C">
+    <AssociationSet Name="FK__Referido__FK_Num__5441852A" Association="Self.FK__Referido__FK_Num__5441852A">
       <End Role="contrato" EntitySet="contrato" />
       <End Role="Referido" EntitySet="Referido" />
     </AssociationSet>

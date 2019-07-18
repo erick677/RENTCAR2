@@ -53,6 +53,14 @@ namespace RentCar.Models
         public string Estatus { get; set; }
         public string Referido { get; set; }
     
+        /*--------------START Datos de factura----------*/
+        public string NFC { get; set; }
+        public string rnc { get; set; }
+        public string nombreEmpresa { get; set; }
+        public string direccionEmpresa { get; set; }
+
+        /*--------------END Datos de factura----------*/
+
         public virtual Clasevehiculo Clasevehiculo { get; set; }
         public virtual Vehiculo Vehiculo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

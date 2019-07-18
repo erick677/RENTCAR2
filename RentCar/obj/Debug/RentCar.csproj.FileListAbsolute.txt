@@ -273,3 +273,4 @@ C:\Users\erick\Source\Repos\RENTCAR2\RentCar\obj\Debug\RentCar.csproj.CoreCompil
 C:\Users\erick\Source\Repos\RENTCAR2\RentCar\obj\Debug\RentCar.csproj.CopyComplete
 C:\Users\erick\Source\Repos\RENTCAR2\RentCar\obj\Debug\RentCar.dll
 C:\Users\erick\Source\Repos\RENTCAR2\RentCar\obj\Debug\RentCar.pdb
+C:\Users\erick\Source\Repos\RENTCAR2\RentCar\obj\Debug\RentCar.csprojAssemblyReference.cache
