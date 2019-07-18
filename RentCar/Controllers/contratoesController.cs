@@ -73,20 +73,55 @@ namespace RentCar.Controllers
             return new ActionAsPdf("ImprimirFactura", new { id = id });
         }
 
+        /*--------------------Facturas con comprobante-------------------*/
+        public ActionResult ImprimirFacturaComprobante(int? id, string NFC, string rnc, string nombreEmpresa, string direccionEmpresa)
+        {
+            contrato contrato2 = db.contrato.Find(id);
+
+
+            var subtotal = Convert.ToDecimal(contrato2.Total);
+            var itbis = Convert.ToDecimal(1.18);
+
+            var total = subtotal * itbis;
+
+            Double doubl = Math.Round((Double)total, 2);
+
+            ViewBag.Total = doubl;
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            contrato contrato = db.contrato.Find(id);
+            if (contrato == null )
+            {
+                return HttpNotFound();
+            }
+            //contrato.NFC = NFC.ToString();
+            //contrato.rnc = rnc.ToString();
+            //contrato.nombreEmpresa = nombreEmpresa.ToString();
+            //contrato.direccionEmpresa = direccionEmpresa.ToString();
+
+
+
+            ViewBag.NFC1 = new SelectList(db.NFC.Where(a => a.Estatus == "Disponible"), "idNFC", "NFC1");
+            return View(contrato);
+        }
+        
+        public ActionResult PdfFacturaComprobante(int? id)
+        {
+            return new ActionAsPdf("ImprimirFacturaComprobante", new { id = id });
+        }
+        /*---------------END Facturas con comprobantes------------*/
+
         public ActionResult DatosComprobante(int? id)
         {
-            ViewBag.FK_Vehiculo = new SelectList(db.NFC.Where(a => a.Estatus == "Disponible"));
+            contrato contrato = db.contrato.Find(id);
 
-            return PartialView(new { id = id });
+            ViewBag.NFC1 = new SelectList(db.NFC.Where(a => a.Estatus == "Disponible"), "idNFC", "NFC1");
+            return View(contrato);
         }
-
-        [HttpPost]
-        public ActionResult DatosComprobante(string NFC, string rnc, string nombreEmpresa, string direccionEmpresa )
-        {
-
-            ViewBag.FK_Vehiculo = new SelectList(db.NFC.Where(a => a.Estatus == "Disponible"));
-            return View();
-        }
+        
 
 
 

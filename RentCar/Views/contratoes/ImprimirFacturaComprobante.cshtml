@@ -1,0 +1,233 @@
+﻿@model RentCar.Models.contrato
+
+@{
+    ViewBag.Title = "ImprimirFacturaComprobante";
+    Layout = null;
+}
+<style>
+    .logo {
+        width: 200px;
+        height: 100px;
+    }
+
+    .InformacionEmpresa {
+        width: 160px;
+        margin-left: 220px;
+        margin-top: -90px;
+    }
+
+    .inf {
+        font-weight: bold;
+    }
+
+    .entrega {
+        width: 50%;
+        background-color: beige;
+    }
+
+    .fechas {
+        margin-left: 53%;
+        background-color: beige;
+        margin-top: -160px;
+    }
+
+    .table {
+        width: 48%;
+        font-size: 20px;
+        margin-left: 26%;
+    }
+
+    .table4 {
+        font-size: 20px;
+        width: 100%;
+    }
+
+    .left {
+        text-align: left;
+    }
+</style>
+
+
+<a href="@Url.Action("Index","Home")"><img src="~/Content/img/logoRentCar1.png" alt="Alternate Text" class="logo" /></a>
+<div class="InformacionEmpresa">
+    <label class="inf">GOLDNET Rent a car</label>
+    <label class="inf">RNC:</label><label>   130929092</label><br />
+    <label class="inf">Fecha:</label><label> @DateTime.Now</label>
+</div>
+<br />
+<hr />
+<h3>Detalles de la Renta</h3>
+<br />
+
+<div class="entrega">
+    <h3>Entrega:</h3>
+    <label>Fase 1, Plaza Las Canas, Cap Cana</label>
+    <br />
+    <h3>Devolución: </h3>
+    <label>Fase 1, Plaza Las Canas, Cap Cana</label>
+</div>
+
+<div class="fechas">
+    <h3 class="fecha">
+        @Html.DisplayNameFor(model => model.Fecha_Inicio):
+    </h3>
+
+    <label>
+        @Html.DisplayFor(model => model.Fecha_Inicio)
+    </label>
+
+    <h3 class="fecha">
+        @Html.DisplayNameFor(model => model.Fecha_Cierre):
+    </h3>
+
+    <label>
+        @Html.DisplayFor(model => model.Fecha_Cierre)
+    </label>
+</div>
+<br />
+<br />
+<hr />
+<br />
+
+<table class="table  table2" border="1">
+    <tr>
+        <th class="marca">
+            @Html.DisplayNameFor(model => model.Vehiculo.Marca):
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Vehiculo.Marca)
+        </td>
+        <th class="modelo">
+            @Html.DisplayNameFor(model => model.Vehiculo.Modelo):
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Vehiculo.Modelo)
+        </td>
+    </tr>
+    <tr>
+        <th class="clase">
+            @Html.DisplayNameFor(model => model.Clasevehiculo.Clase):
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Clasevehiculo.Clase)
+        </td>
+        <th class="placa">
+            @Html.DisplayNameFor(model => model.Vehiculo.Placa):
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Vehiculo.Placa)
+        </td>
+    </tr>
+</table>
+<table class="table  table3" border="1">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Vehiculo.Año):
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Vehiculo.Año)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Combustible_Salida):
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Combustible_Salida)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Combustible_Entrada):
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Combustible_Entrada)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kilometraje_Salida):
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Kilometraje_Salida)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kilometraje_Entrada):
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Kilometraje_Entrada)
+        </td>
+    </tr>
+</table>
+<br />
+<hr />
+<br />
+
+<table class="table4">
+    <tr>
+        <th class="left">
+            @Html.DisplayNameFor(model => model.Cantidad_Dias)
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Cantidad_Dias)
+        </td>
+    </tr>
+    <tr>
+        <th class="left">
+            @Html.DisplayNameFor(model => model.Dias_Extras)
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Dias_Extras)
+        </td>
+    </tr>
+    <tr>
+        <th class="left">
+            @Html.DisplayName("Descuento")
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Descuento_Comision)  $USD
+        </td>
+    </tr>
+    <tr>
+        <th class="left">
+            @Html.DisplayName("Costo por dia")
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.costo_dia) $USD
+        </td>
+    </tr>
+    <tr>
+        <th class="left">
+            @Html.DisplayNameFor(model => model.recargo)
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.recargo) $USD
+        </td>
+    </tr>
+    <tr>
+        <th class="left">
+            @Html.DisplayName("SubTotal")
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.subtotal) $USD
+        </td>
+    </tr>
+    <tr>
+        <th class="left">
+            @Html.DisplayName("ITBIS")
+        </th>
+        <td>
+            @Html.DisplayName("18%")
+        </td>
+    </tr>
+    <tr>
+        <th class="left">
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+        <td>
+            @ViewBag.Total $USD
+        </td>
+    </tr>
+</table>

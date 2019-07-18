@@ -2165,6 +2165,7 @@
     <Content Include="Views\NFCs\Edit.cshtml" />
     <Content Include="Views\NFCs\Index.cshtml" />
     <Content Include="Views\contratoes\DatosComprobante.cshtml" />
+    <Content Include="Views\contratoes\ImprimirFacturaComprobante.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

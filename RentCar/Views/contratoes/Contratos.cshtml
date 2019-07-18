@@ -204,9 +204,11 @@
                 @Html.ActionLink("Print", "Pdf", new { id = item.ContratoId })
 
                 @Html.ActionLink("Factura", "PdfFactura", new { id = item.ContratoId })
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-primary Datoscomprobante" data-toggle="modal" data-target="#exampleModal">
                     Comprobante
                 </button>
+
+                @Html.ActionLink("Comprobante", "PdfFacturaComprobante", new { id = item.ContratoId })
 
             </td>
         </tr>
@@ -226,13 +228,19 @@
             </div>
             <div class="modal-body">
                 
+                <div class="comprobante"></div>
 
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
 </div>
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $(".Datoscomprobante").click(function () {
+            $(".comprobante").load("/contratoes/DatosComprobante")
+        });
+    });
+</script>
