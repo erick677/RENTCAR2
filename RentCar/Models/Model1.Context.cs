@@ -15,10 +15,10 @@ namespace RentCar.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class rentcar4Entities : DbContext
+    public partial class rentcar4Entities2 : DbContext
     {
-        public rentcar4Entities()
-            : base("name=rentcar4Entities")
+        public rentcar4Entities2()
+            : base("name=rentcar4Entities2")
         {
         }
     

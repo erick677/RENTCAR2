@@ -13,8 +13,9 @@ namespace RentCar.Controllers
 {
     public class contratoesController : Controller
     {
-        private rentcar4Entities db = new rentcar4Entities();
-
+        private rentcar4Entities2 db = new rentcar4Entities2();
+        private datosparaimprimir dat = new datosparaimprimir();
+        int? idgeneral;
         // GET: contratoes
         public ActionResult Index()
         {
@@ -43,6 +44,7 @@ namespace RentCar.Controllers
         /*--------------Facturas-----------------------------------------*/
         public ActionResult ImprimirFactura(int? id)
         {
+            dat.Id = id;
             contrato contrato2 = db.contrato.Find(id);
 
 
@@ -54,7 +56,6 @@ namespace RentCar.Controllers
             Double doubl = Math.Round((Double)total, 2);
 
             ViewBag.Total = doubl;
-
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -70,7 +71,45 @@ namespace RentCar.Controllers
         
         public ActionResult PdfFactura(int? id)
         {
-            return new ActionAsPdf("ImprimirFactura", new { id = id });
+            Facturas factura = new Facturas();
+            dat.Id = id;
+            var actionPDF = new Rotativa.ActionAsPdf("ImprimirFactura", new { id = id }) //some route values) 
+            {
+                //FileName = "TestView.pdf", 
+
+
+            };
+            byte[] applicationPDFData = actionPDF.BuildFile(this.ControllerContext);
+            factura.Factura = applicationPDFData;
+            db.Facturas.Add(factura);
+            
+            return actionPDF;
+        }
+        public ActionResult Imprimir1(int? id)
+        {
+            Facturas factura = new Facturas();
+            dat.Id = id;
+            var actionPDF = new Rotativa.ActionAsPdf("ImprimirFactura", new { id = id }) //some route values) 
+            {
+                //FileName = "TestView.pdf", 
+
+
+            };
+            byte[] applicationPDFData = actionPDF.BuildFile(this.ControllerContext);
+            factura.Factura = applicationPDFData;
+            db.Facturas.Add(factura);
+            db.SaveChanges();
+            return actionPDF;
+            
+
+        }
+
+
+        public ActionResult MostrarFacturas()
+        {
+            var contrato = db.Facturas;
+
+            return View(contrato.ToList());
         }
 
         public ActionResult DatosComprobante(int? id)
@@ -119,7 +158,19 @@ namespace RentCar.Controllers
             var contrato = db.contrato.Where(a => a.Tipo_Renta == "Reserva").Include(c => c.Clasevehiculo).Include(c => c.Vehiculo).Where(m => m.Fecha_Cierre <= DateTime.Today && m.Estatus == "Abierto");
             return View(contrato.ToList());
         }
-
+        public ActionResult detalle(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Facturas contrato = db.Facturas.Find(id);
+            if (contrato == null)
+            {
+                return HttpNotFound();
+            }
+            return File(contrato.Factura, "application/pdf");
+        }
 
         // GET: contratoes/Details/5
         public ActionResult Details(int? id)

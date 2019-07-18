@@ -1,0 +1,33 @@
+﻿@model IEnumerable<RentCar.Models.Facturas>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoFactura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Factura)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodigoFactura)
+        </td>
+        <td>
+            <img src="~/Content/img/pdf.png" style="width:30px; height:30px;" alt="Alternate Text" />
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idNFC }) |
+            @Html.ActionLink("detalle", "detalle", new { id=item.idNFC }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idNFC })
+        </td>
+    </tr>
+}
+
+</table>

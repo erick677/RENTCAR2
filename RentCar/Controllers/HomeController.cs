@@ -9,7 +9,7 @@ namespace RentCar.Controllers
 {
     public class HomeController : Controller
     {
-        private rentcar4Entities db = new rentcar4Entities();
+        private rentcar4Entities2 db = new rentcar4Entities2();
         contrato contrato = new contrato();
         public ActionResult Index()
         {

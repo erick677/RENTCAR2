@@ -12,20 +12,20 @@
       <PropertyRef Name="ContratoId" />
     </Key>
     <Property Name="ContratoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre" Type="varchar(max)" />
-    <Property Name="Apellido" Type="varchar(max)" />
-    <Property Name="Pais" Type="varchar(max)" />
-    <Property Name="Ciudad" Type="varchar(max)" />
-    <Property Name="Direccion" Type="varchar(max)" />
-    <Property Name="Telefono" Type="varchar(max)" />
-    <Property Name="Email" Type="varchar(max)" />
-    <Property Name="Licencia" Type="varchar(max)" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" />
+    <Property Name="Apellido" Type="varchar" MaxLength="40" />
+    <Property Name="Pais" Type="varchar" MaxLength="70" />
+    <Property Name="Ciudad" Type="varchar" MaxLength="40" />
+    <Property Name="Direccion" Type="varchar" MaxLength="70" />
+    <Property Name="Telefono" Type="varchar" MaxLength="25" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Licencia" Type="varchar" MaxLength="20" />
     <Property Name="FK_Vehiculo" Type="int" />
     <Property Name="idClase" Type="int" />
     <Property Name="Combustible_Salida" Type="varchar" MaxLength="15" />
     <Property Name="Combustible_Entrada" Type="varchar" MaxLength="15" />
-    <Property Name="Kilometraje_Salida" Type="varchar(max)" />
-    <Property Name="Kilometraje_Entrada" Type="varchar(max)" />
+    <Property Name="Kilometraje_Salida" Type="varchar" MaxLength="40" />
+    <Property Name="Kilometraje_Entrada" Type="varchar" MaxLength="40" />
     <Property Name="costo_dia" Type="money" />
     <Property Name="Cantidad_Dias" Type="int" />
     <Property Name="costo_diasextras" Type="money" />
@@ -38,10 +38,10 @@
     <Property Name="Contrato" Type="varchar" MaxLength="30" />
     <Property Name="Fecha_Inicio" Type="datetime" />
     <Property Name="Fecha_Cierre" Type="datetime" />
-    <Property Name="Condiciones" Type="varchar(max)" />
+    <Property Name="Condiciones" Type="varchar" MaxLength="100" />
     <Property Name="Tipo_Renta" Type="varchar" MaxLength="30" />
     <Property Name="Estatus" Type="varchar" MaxLength="40" />
-    <Property Name="Referido" Type="varchar(max)" />
+    <Property Name="Referido" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="contratohistory">
     <Key>
@@ -111,7 +111,7 @@
     <Property Name="ReferidoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FK_Referido" Type="int" />
     <Property Name="FK_NumeroContrato" Type="int" />
-    <Property Name="Comision" Type="varchar(max)" />
+    <Property Name="Comision" Type="varchar" MaxLength="40" />
     <Property Name="Estatus" Type="varchar" MaxLength="15" />
   </EntityType>
   <EntityType Name="Vehiculo">
@@ -119,10 +119,10 @@
       <PropertyRef Name="VehiculoId" />
     </Key>
     <Property Name="VehiculoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Marca" Type="varchar(max)" />
-    <Property Name="Modelo" Type="varchar(max)" />
-    <Property Name="Placa" Type="varchar(max)" />
-    <Property Name="Chasis" Type="varchar(max)" />
+    <Property Name="Marca" Type="varchar" MaxLength="30" />
+    <Property Name="Modelo" Type="varchar" MaxLength="40" />
+    <Property Name="Placa" Type="varchar" MaxLength="20" />
+    <Property Name="Chasis" Type="varchar" MaxLength="20" />
     <Property Name="Año" Type="int" />
     <Property Name="idClase" Type="int" />
     <Property Name="Combustible" Type="varchar" MaxLength="15" />
@@ -130,7 +130,7 @@
     <Property Name="Tarifa" Type="money" />
     <Property Name="Estatus" Type="varchar" MaxLength="15" />
   </EntityType>
-  <Association Name="FK__contrato__FK_Veh__4E88ABD4">
+  <Association Name="FK__contrato__FK_Veh__46E78A0C">
     <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="0..1" />
     <End Role="contrato" Type="Self.contrato" Multiplicity="*" />
     <ReferentialConstraint>
@@ -142,7 +142,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__contrato__idClas__4F7CD00D">
+  <Association Name="FK__contrato__idClas__47DBAE45">
     <End Role="Clasevehiculo" Type="Self.Clasevehiculo" Multiplicity="0..1" />
     <End Role="contrato" Type="Self.contrato" Multiplicity="*" />
     <ReferentialConstraint>
@@ -154,7 +154,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Referido__Estatu__534D60F1">
+  <Association Name="FK__Referido__Estatu__4D94879B">
     <End Role="contrato" Type="Self.contrato" Multiplicity="0..1" />
     <End Role="Referido" Type="Self.Referido" Multiplicity="*" />
     <ReferentialConstraint>
@@ -166,7 +166,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Referido__FK_Num__5441852A">
+  <Association Name="FK__Referido__FK_Num__4E88ABD4">
     <End Role="contrato" Type="Self.contrato" Multiplicity="0..1" />
     <End Role="Referido" Type="Self.Referido" Multiplicity="*" />
     <ReferentialConstraint>
@@ -178,7 +178,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Vehiculo__Estatu__4222D4EF">
+  <Association Name="FK__Vehiculo__Estatu__3E52440B">
     <End Role="Clasevehiculo" Type="Self.Clasevehiculo" Multiplicity="0..1" />
     <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="*" />
     <ReferentialConstraint>
@@ -201,23 +201,23 @@
     <EntitySet Name="NFC" EntityType="Self.NFC" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Referido" EntityType="Self.Referido" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__contrato__FK_Veh__4E88ABD4" Association="Self.FK__contrato__FK_Veh__4E88ABD4">
+    <AssociationSet Name="FK__contrato__FK_Veh__46E78A0C" Association="Self.FK__contrato__FK_Veh__46E78A0C">
       <End Role="Vehiculo" EntitySet="Vehiculo" />
       <End Role="contrato" EntitySet="contrato" />
     </AssociationSet>
-    <AssociationSet Name="FK__contrato__idClas__4F7CD00D" Association="Self.FK__contrato__idClas__4F7CD00D">
+    <AssociationSet Name="FK__contrato__idClas__47DBAE45" Association="Self.FK__contrato__idClas__47DBAE45">
       <End Role="Clasevehiculo" EntitySet="Clasevehiculo" />
       <End Role="contrato" EntitySet="contrato" />
     </AssociationSet>
-    <AssociationSet Name="FK__Referido__Estatu__534D60F1" Association="Self.FK__Referido__Estatu__534D60F1">
+    <AssociationSet Name="FK__Referido__Estatu__4D94879B" Association="Self.FK__Referido__Estatu__4D94879B">
       <End Role="contrato" EntitySet="contrato" />
       <End Role="Referido" EntitySet="Referido" />
     </AssociationSet>
-    <AssociationSet Name="FK__Referido__FK_Num__5441852A" Association="Self.FK__Referido__FK_Num__5441852A">
+    <AssociationSet Name="FK__Referido__FK_Num__4E88ABD4" Association="Self.FK__Referido__FK_Num__4E88ABD4">
       <End Role="contrato" EntitySet="contrato" />
       <End Role="Referido" EntitySet="Referido" />
     </AssociationSet>
-    <AssociationSet Name="FK__Vehiculo__Estatu__4222D4EF" Association="Self.FK__Vehiculo__Estatu__4222D4EF">
+    <AssociationSet Name="FK__Vehiculo__Estatu__3E52440B" Association="Self.FK__Vehiculo__Estatu__3E52440B">
       <End Role="Clasevehiculo" EntitySet="Clasevehiculo" />
       <End Role="Vehiculo" EntitySet="Vehiculo" />
     </AssociationSet>

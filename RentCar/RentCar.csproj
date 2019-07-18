@@ -153,6 +153,7 @@
     <Compile Include="Models\contratohistory.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\datosparaimprimir.cs" />
     <Compile Include="Models\Facturas.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -263,6 +264,7 @@
     <Content Include="Content\img\combustible.jpg" />
     <Content Include="Content\img\iconocombustible.png" />
     <Content Include="Content\img\logoRentCar1.png" />
+    <Content Include="Content\img\pdf.png" />
     <Content Include="Content\js\demo\chart-area-demo.js" />
     <Content Include="Content\js\demo\chart-bar-demo.js" />
     <Content Include="Content\js\demo\chart-pie-demo.js" />
@@ -2165,6 +2167,7 @@
     <Content Include="Views\NFCs\Edit.cshtml" />
     <Content Include="Views\NFCs\Index.cshtml" />
     <Content Include="Views\contratoes\DatosComprobante.cshtml" />
+    <Content Include="Views\contratoes\MostrarFacturas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
