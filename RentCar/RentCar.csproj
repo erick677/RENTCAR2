@@ -180,6 +180,7 @@
     <Compile Include="Models\Referido.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ReporteMes.cs" />
     <Compile Include="Models\Vehiculo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -263,6 +264,7 @@
     <Content Include="Content\img\combustible.jpg" />
     <Content Include="Content\img\iconocombustible.png" />
     <Content Include="Content\img\logoRentCar1.png" />
+    <Content Include="Content\img\pdf.png" />
     <Content Include="Content\js\demo\chart-area-demo.js" />
     <Content Include="Content\js\demo\chart-bar-demo.js" />
     <Content Include="Content\js\demo\chart-pie-demo.js" />
@@ -2124,6 +2126,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\printThis.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2166,6 +2169,9 @@
     <Content Include="Views\NFCs\Index.cshtml" />
     <Content Include="Views\contratoes\DatosComprobante.cshtml" />
     <Content Include="Views\contratoes\ImprimirFacturaComprobante.cshtml" />
+    <Content Include="Views\contratoes\MostrarFacturas.cshtml" />
+    <Content Include="Views\contratoes\borrar.cshtml" />
+    <Content Include="Views\contratoes\RepordeDelMes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

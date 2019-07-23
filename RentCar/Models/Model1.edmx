@@ -53,37 +53,37 @@
             <PropertyRef Name="Historialid" />
           </Key>
           <Property Name="Historialid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ContratoId" Type="varchar" MaxLength="70" />
-          <Property Name="Nombre" Type="varchar" MaxLength="30" />
-          <Property Name="Apellido" Type="varchar" MaxLength="40" />
-          <Property Name="Pais" Type="varchar" MaxLength="70" />
-          <Property Name="Ciudad" Type="varchar" MaxLength="40" />
-          <Property Name="Direccion" Type="varchar" MaxLength="70" />
-          <Property Name="Telefono" Type="varchar" MaxLength="25" />
-          <Property Name="Email" Type="varchar" MaxLength="100" />
-          <Property Name="Licencia" Type="varchar" MaxLength="20" />
-          <Property Name="FK_Vehiculo" Type="varchar" MaxLength="70" />
-          <Property Name="idClase" Type="varchar" MaxLength="70" />
-          <Property Name="Combustible_Salida" Type="varchar" MaxLength="15" />
-          <Property Name="Combustible_Entrada" Type="varchar" MaxLength="15" />
-          <Property Name="Kilometraje_Salida" Type="varchar" MaxLength="40" />
-          <Property Name="Kilometraje_Entrada" Type="varchar" MaxLength="40" />
-          <Property Name="costo_dia" Type="varchar" MaxLength="70" />
-          <Property Name="Cantidad_Dias" Type="varchar" MaxLength="70" />
-          <Property Name="costo_diasextras" Type="varchar" MaxLength="70" />
-          <Property Name="Dias_Extras" Type="varchar" MaxLength="70" />
-          <Property Name="recargo" Type="varchar" MaxLength="70" />
-          <Property Name="Descuento_Comision" Type="varchar" MaxLength="70" />
-          <Property Name="subtotal" Type="varchar" MaxLength="70" />
-          <Property Name="Total" Type="varchar" MaxLength="70" />
-          <Property Name="FormaPago" Type="varchar" MaxLength="30" />
-          <Property Name="Contrato" Type="varchar" MaxLength="30" />
-          <Property Name="Fecha_Inicio" Type="varchar" MaxLength="70" />
-          <Property Name="Fecha_Cierre" Type="varchar" MaxLength="70" />
-          <Property Name="Condiciones" Type="varchar" MaxLength="100" />
-          <Property Name="Tipo_Renta" Type="varchar" MaxLength="30" />
-          <Property Name="Modelo" Type="varchar" MaxLength="40" />
-          <Property Name="Referido" Type="varchar" MaxLength="20" />
+          <Property Name="ContratoId" Type="varchar(max)" />
+          <Property Name="Nombre" Type="varchar(max)" />
+          <Property Name="Apellido" Type="varchar(max)" />
+          <Property Name="Pais" Type="varchar(max)" />
+          <Property Name="Ciudad" Type="varchar(max)" />
+          <Property Name="Direccion" Type="varchar(max)" />
+          <Property Name="Telefono" Type="varchar(max)" />
+          <Property Name="Email" Type="varchar(max)" />
+          <Property Name="Licencia" Type="varchar(max)" />
+          <Property Name="FK_Vehiculo" Type="varchar(max)" />
+          <Property Name="idClase" Type="varchar(max)" />
+          <Property Name="Combustible_Salida" Type="varchar(max)" />
+          <Property Name="Combustible_Entrada" Type="varchar(max)" />
+          <Property Name="Kilometraje_Salida" Type="varchar(max)" />
+          <Property Name="Kilometraje_Entrada" Type="varchar(max)" />
+          <Property Name="costo_dia" Type="varchar(max)" />
+          <Property Name="Cantidad_Dias" Type="varchar(max)" />
+          <Property Name="costo_diasextras" Type="varchar(max)" />
+          <Property Name="Dias_Extras" Type="varchar(max)" />
+          <Property Name="recargo" Type="varchar(max)" />
+          <Property Name="Descuento_Comision" Type="varchar(max)" />
+          <Property Name="subtotal" Type="varchar(max)" />
+          <Property Name="Total" Type="money" />
+          <Property Name="FormaPago" Type="varchar(max)" />
+          <Property Name="Contrato" Type="varchar(max)" />
+          <Property Name="Fecha_Inicio" Type="datetime" />
+          <Property Name="Fecha_Cierre" Type="datetime" />
+          <Property Name="Condiciones" Type="varchar(max)" />
+          <Property Name="Tipo_Renta" Type="varchar(max)" />
+          <Property Name="Modelo" Type="varchar(max)" />
+          <Property Name="Referido" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Facturas">
           <Key>
@@ -286,37 +286,37 @@
             <PropertyRef Name="Historialid" />
           </Key>
           <Property Name="Historialid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ContratoId" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Apellido" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Pais" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="Ciudad" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Direccion" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="Telefono" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Licencia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="FK_Vehiculo" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="idClase" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="Combustible_Salida" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="Combustible_Entrada" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="Kilometraje_Salida" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Kilometraje_Entrada" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="costo_dia" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="Cantidad_Dias" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="costo_diasextras" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="Dias_Extras" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="recargo" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="Descuento_Comision" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="subtotal" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="Total" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="FormaPago" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Contrato" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Fecha_Inicio" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="Fecha_Cierre" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="Condiciones" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Tipo_Renta" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Modelo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Referido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ContratoId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Pais" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Licencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FK_Vehiculo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idClase" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Combustible_Salida" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Combustible_Entrada" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Kilometraje_Salida" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Kilometraje_Entrada" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="costo_dia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cantidad_Dias" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="costo_diasextras" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Dias_Extras" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="recargo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Descuento_Comision" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="subtotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Total" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FormaPago" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Contrato" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Inicio" Type="DateTime" Precision="3" />
+          <Property Name="Fecha_Cierre" Type="DateTime" Precision="3" />
+          <Property Name="Condiciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo_Renta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Modelo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Referido" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Facturas">
           <Key>
@@ -432,7 +432,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="rentcar4Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="rentcar4Entities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Clasevehiculo" EntityType="Self.Clasevehiculo" />
           <EntitySet Name="contrato" EntityType="Self.contrato" />
           <EntitySet Name="contratohistory" EntityType="Self.contratohistory" />
@@ -469,7 +469,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="rentcar4ModelStoreContainer" CdmEntityContainer="rentcar4Entities">
+        <EntityContainerMapping StorageEntityContainer="rentcar4ModelStoreContainer" CdmEntityContainer="rentcar4Entities2">
           <EntitySetMapping Name="Clasevehiculo">
             <EntityTypeMapping TypeName="rentcar4Model.Clasevehiculo">
               <MappingFragment StoreEntitySet="Clasevehiculo">

@@ -4,13 +4,23 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Contratos/Reservas</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
 </p>
-<table class="table">
-    <tr>
+
+<div class="input-group mb-2" style="margin-left:10px;">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+    </div>
+    <input type="text" class="form-control col-md-3" placeholder="Buscar" id="Search" aria-describedby="basic-addon1">
+</div>
+
+
+
+<table class="table table-striped">
+    <tr class="thead-dark">
         <th>
             @Html.DisplayNameFor(model => model.Nombre)
         </th>
@@ -104,107 +114,370 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Apellido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pais)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ciudad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Direccion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Telefono)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Licencia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Combustible_Salida)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Combustible_Entrada)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Kilometraje_Salida)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Kilometraje_Entrada)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.costo_dia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cantidad_Dias)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Dias_Extras)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.costo_diasextras)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descuento_Comision)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.subtotal)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Total)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.recargo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FormaPago)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Contrato1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fecha_Inicio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fecha_Cierre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Condiciones)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tipo_Renta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Estatus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Referido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Clasevehiculo.Clase)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Vehiculo.Marca)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ContratoId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ContratoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ContratoId }) |
-            @Html.ActionLink("Cerrar Contrato", "CerrarContrato", new { id = item.ContratoId }) |
-            @Html.ActionLink("Print", "Pdf", new { id = item.ContratoId })
+    @foreach (var item in Model)
+    {
+        <tr class="Search">
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ciudad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Licencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Combustible_Salida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Combustible_Entrada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kilometraje_Salida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kilometraje_Entrada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.costo_dia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad_Dias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dias_Extras)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.costo_diasextras)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descuento_Comision)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subtotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.recargo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormaPago)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contrato1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha_Inicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha_Cierre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Condiciones)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo_Renta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Referido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clasevehiculo.Clase)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vehiculo.Marca)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ContratoId }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Details", "Details", new { id = item.ContratoId }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.ContratoId }, new { @class = "btn btn-danger" })
+                @Html.ActionLink("Cerrar Contrato", "CerrarContrato", new { id = item.ContratoId }, new { @class = "btn btn-warning" })
 
-        </td>
-    </tr>
-}
+                <a href="@Url.Action("Pdf","contratoes", new { id = item.ContratoId })" class="btn btn-dark"><img src="~/Content/img/pdf.png" style="width:30px; height:30px;" alt="Alternate Text" /></a>
+
+
+            </td>
+        </tr>
+    }
 
 </table>
+<h1>Ganancias: @ViewBag.TotalGanancias</h1>
+
+
+<div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Reserva</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div id="table">
+                    <img src="~/Content/img/logoRentCar1.png" id="img" alt="Alternate Text" style="float:right; width: 250px; height: 100px; margin-top: 20px;" />
+
+
+                    <div style="float:left;">
+                        <p class="col-md-6" style="text-align:justify; width:25px; font-size: 20px; float: left;  margin-right: 100px; margin-top: 5%;">
+                            COMPANY:
+                        </p>
+                        <p class="col-md-6" style="text-align:justify; font-size: 20px; float: right; margin-top: 5%; margin-right: 165px;">
+                            GOLDNET Rent-A-Car
+                        </p>
+
+                        <p class="col-md-6" style="text-align:justify; font-size: 20px; margin-top: 15%;">
+                            DEPARTMENT:
+                        </p>
+                        <p class="col-md-6" style="text-align:justify; font-size: 20px; float: right; margin-top: -40px; margin-left:180px; ">
+                            RESERVATION GOLDNET RENT-A-CAR
+                        </p>
+
+                    </div>
+
+
+                    <div style="float:right; margin-right: 5%; margin-top: 10px;">
+                        <p class="col-md-6" style="text-align:justify; width:25px; font-size: 20px; float: left;  margin-right: 100px; margin-top: 5%;">
+                            POSITION:
+                        </p>
+                        <p class="col-md-6" style="text-align:justify; font-size: 20px; float: right; margin-top: 5%;">
+                            RESERVAS
+                        </p>
+
+
+                        <p class="col-md-6" style="text-align:justify; font-size: 20px;  margin-top: 5%;">
+                            RNC:
+                        </p>
+                        <p class="col-md-6" style="text-align:justify; font-size: 20px; float: right; margin-top: -40px; margin-right: 0px; ">
+                            130929092
+                        </p>
+                    </div>
+
+                    <table class="table table-striped" border="1" cellpadding="10" style=" width: 90%;">
+                        <tr class="thead-dark" align="center">
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Apellido)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Pais)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Ciudad)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Direccion)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Telefono)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Licencia)
+                            </th>
+                            <th>
+                                @Html.DisplayName("Vehiculo")
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Vehiculo.Modelo)
+                            </th>
+                            <th>
+                                @Html.DisplayName("Clase")
+                            </th>
+
+                            <th>
+                                @Html.DisplayName("Costo")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Dias")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Dias Extras")
+                            </th>
+
+                            <th>
+                                @Html.DisplayName("Contrato")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Fecha de Inicio")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Fecha de Cierre")
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Tipo_Renta)
+                            </th>
+                        </tr>
+
+
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Apellido)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Pais)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Ciudad)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Direccion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Telefono)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Licencia)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Vehiculo.Marca)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Vehiculo.Modelo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Clasevehiculo.Clase)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.costo_dia)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Cantidad_Dias)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Dias_Extras)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Contrato1)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Fecha_Inicio)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Fecha_Cierre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Tipo_Renta)
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<button type="button" class="imprimir btn btn-danger" id="imprimir"> <i class="fas fa-print"></i> PRINT</button>
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#imprimir").click(function () {
+            var option = {
+                debug: false,               // show the iframe for debugging
+                importCSS: false,            // import parent page css
+                importStyle: false,         // import style tags
+                printContainer: true,       // print outer container/$.selector
+                loadCSS: "/Content/bootstrap.min.css",                // path to additional css file - use an array [] for multiple
+                pageTitle: "",              // add title to print page
+                removeInline: false,        // remove inline styles from print elements
+                removeInlineSelector: "*",  // custom selectors to filter inline styles. removeInline must be true
+                printDelay: 333,            // variable print delay
+                header: null,               // prefix to html
+                footer: null,               // postfix to html
+                base: false,                // preserve the BASE tag or accept a string for the URL
+                formValues: true,           // preserve input/form values
+                canvas: false,              // copy canvas content
+                doctypeString: '...',       // enter a different doctype for older markup
+                removeScripts: false,       // remove script tags from print content
+                copyTagClasses: false,      // copy classes from the html & body tag
+                beforePrintEvent: null,     // function for printEvent in iframe
+                beforePrint: null,          // function called before iframe is filled
+                afterPrint: null            // function called before iframe is removed
+            }
+            $("#table").printThis(option);
+        });
+    });
+
+    function Mostrar() {
+        var vis;
+        var box;
+        for (i = 1; i <= 3; i++) {
+            box = document.getElementById('opcion' + i);
+            vis = (box.checked) ? "block" : "none";
+            document.getElementById('oculto' + i).style.display = vis;
+        }
+    }
+
+</script>
+
+
+
+
+<script>
+    $(document).ready(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#Search").keyup(function () {
+            var searchText = $("#Search").val().toLowerCase();
+            $(".Search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            });
+        });
+    });
+
+
+</script>

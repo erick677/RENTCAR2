@@ -1,0 +1,63 @@
+﻿@model IEnumerable<RentCar.Models.Facturas>
+
+@{
+    ViewBag.Title = "MostrarFacturas";
+}
+
+<h2>MostrarFacturas</h2>
+
+<div class="input-group mb-2" style="margin-left:10px;">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+    </div>
+    <input type="text" class="form-control col-md-3" placeholder="Buscar" id="Search" aria-describedby="basic-addon1">
+</div>
+
+<table class="table table-striped">
+    <tr class="thead-dark">
+        <th>
+            @Html.DisplayName( "Nombre del cliente de la factura" )
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Factura)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="Search">
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoFactura)
+            </td>
+            <td>
+                <img src="~/Content/img/pdf.png" style="width:30px; height:30px;" alt="Alternate Text" />
+            </td>
+            <td>
+                @Html.ActionLink("detalle", "detalle", new { id = item.idNFC }, new { @class = "btn btn-success" } ) |
+                @Html.ActionLink("borrar", "borrar", new { id = item.idNFC }, new { @class = "btn btn-danger" } )
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+    $(document).ready(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#Search").keyup(function () {
+            var searchText = $("#Search").val().toLowerCase();
+            $(".Search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            });
+        });
+    });
+</script>

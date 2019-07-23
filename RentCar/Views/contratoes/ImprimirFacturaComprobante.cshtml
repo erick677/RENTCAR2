@@ -1,4 +1,5 @@
 ﻿@model RentCar.Models.contrato
+@using RentCar.Models
 
 @{
     ViewBag.Title = "ImprimirFacturaComprobante";
@@ -21,12 +22,13 @@
     }
 
     .entrega {
-        width: 50%;
+        width: 26%;
         background-color: beige;
     }
 
     .fechas {
-        margin-left: 53%;
+        margin-left: 27%;
+        width: 25%;
         background-color: beige;
         margin-top: -160px;
     }
@@ -45,19 +47,50 @@
     .left {
         text-align: left;
     }
+    .nfc{
+        font-weight: bold;
+    }
+    .creditoFiscal{
+        font-weight: bold;
+    }
+    .InformacionNFC{
+        font-size: 20px;
+        margin-left: 77%;
+        width: 250px;
+        margin-top: -50px;
+    }
+    .DatosEmpresa{
+        background-color: beige;
+        margin-left: 55%;
+        margin-top: -200px;
+    }
+    .position{
+        margin-left: 15px;
+        padding-top: 1px;
+        padding-bottom: 5px;
+    }
 </style>
 
+<a href="@Url.Action("Imprimir2","contratoes", new { id = Model.ContratoId, ViewBag.NFC1, ViewBag.rnc, ViewBag.nombreEmpresa, ViewBag.direccionEmpresa })"><img src="~/Content/img/logoRentCar1.png" alt="Alternate Text" class="logo" /></a>
 
-<a href="@Url.Action("Index","Home")"><img src="~/Content/img/logoRentCar1.png" alt="Alternate Text" class="logo" /></a>
 <div class="InformacionEmpresa">
     <label class="inf">GOLDNET Rent a car</label>
     <label class="inf">RNC:</label><label>   130929092</label><br />
     <label class="inf">Fecha:</label><label> @DateTime.Now</label>
 </div>
+
+<div class="InformacionNFC">
+    <label class="creditoFiscal">Factura de credito fiscal</label>
+    <br />
+    <label class="nfc">NFC:</label><label>@ViewBag.NFC1</label>
+</div>
+
 <br />
 <hr />
 <h3>Detalles de la Renta</h3>
+
 <br />
+
 
 <div class="entrega">
     <h3>Entrega:</h3>
@@ -84,6 +117,33 @@
         @Html.DisplayFor(model => model.Fecha_Cierre)
     </label>
 </div>
+
+
+<div class="DatosEmpresa">
+    <div class="position">
+        <h4>
+            RNC DE LA COMPAÑIA:
+        </h4>
+        <label>
+            @ViewBag.rnc
+        </label>
+
+        <h4>
+            NOMBRE DE LA COMPAÑIA
+        </h4>
+        <label>
+            @ViewBag.nombreEmpresa
+        </label>
+
+        <h4>
+            DIRECCION DE LA COMPAÑIA
+        </h4>
+        <label>
+            @ViewBag.direccionEmpresa
+        </label>
+    </div>
+</div>
+
 <br />
 <br />
 <hr />
@@ -231,3 +291,4 @@
         </td>
     </tr>
 </table>
+

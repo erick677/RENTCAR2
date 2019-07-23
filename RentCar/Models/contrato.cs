@@ -52,14 +52,16 @@ namespace RentCar.Models
         public string Tipo_Renta { get; set; }
         public string Estatus { get; set; }
         public string Referido { get; set; }
-    
-        /*--------------START Datos de factura----------*/
+
+
+
+        /*-----------------START Datos del comprobante-------------------*/
         public string NFC { get; set; }
         public string rnc { get; set; }
         public string nombreEmpresa { get; set; }
         public string direccionEmpresa { get; set; }
+        /*-----------------END Datos del comprobante-------------------*/
 
-        /*--------------END Datos de factura----------*/
 
         public virtual Clasevehiculo Clasevehiculo { get; set; }
         public virtual Vehiculo Vehiculo { get; set; }

@@ -6,8 +6,8 @@
 
 <h2>Vehiculos Rentados</h2>
 
-<table class="table">
-    <tr>
+<table class="table table-striped">
+    <tr class="thead-dark">
         <th>
             @Html.DisplayNameFor(model => model.Marca)
         </th>
@@ -67,16 +67,13 @@
         <td>
             @Html.DisplayFor(modelItem => item.Tarifa)
         </td>
-        <td>
+        <td class="bg bg-danger">
             @Html.DisplayFor(modelItem => item.Estatus)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Clasevehiculo.Clase)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.VehiculoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.VehiculoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.VehiculoId })
         </td>
     </tr>
 }

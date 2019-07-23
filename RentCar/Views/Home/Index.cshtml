@@ -1,10 +1,20 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<!-- Ionicons -->
+<link rel="stylesheet" href="~/Content/bower_components/Ionicons/css/ionicons.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="~/Content/dist/css/AdminLTE.min.css">
+<!-- AdminLTE Skins. Choose a skin from the css/skins
+     folder instead of downloading all of them to reduce the load. -->
+<link rel="stylesheet" href="~/Content/dist/css/skins/_all-skins.min.css">
+
+
+
 @if (@ViewBag.alert != null)
 {
     <div class="col-md-12">
-        <div class="alert alert-warning alert-dismissable">
+        <div class="alert alert-danger alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
             <h4><i class="fas fa-exclamation-triangle"></i> Alerta</h4>
             Advertencia tienes contratos/reservas que han alcanzado su fecha de cierre, a partir de aqui se contarán los días extras
@@ -12,3 +22,214 @@
         @ViewBag.day
     </div>
 }
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Dashboard
+            <small>Panel de control</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+        </ol>
+    </section>
+    
+            <!-- Main content -->
+            <section class="content">
+                <!-- Small boxes (Stat box) -->
+                <div class="row">
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-warning">
+                            <div class="inner">
+                                <h3>Hoy: @ViewBag.ReservasDeHoy</h3>
+
+                                <p>Reservas Pendientes</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-file-signature"></i>
+                            </div>
+                            <a href="@Url.Action("LlegadasDiarias","Reservas")" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-warning">
+                            <div class="inner">
+                                <h3>Hoy: @ViewBag.ContratosDeHoy</h3>
+
+                                <p>Contratos Pendientes</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-file-signature"></i>
+                            </div>
+                            <a href="@Url.Action("LlegadasDiarias","Reservas")" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+
+                    @if (ViewBag.NFC == 3 || ViewBag.NFC == 2 || ViewBag.NFC == 1)
+                    {
+                        <!-- ./col -->
+                        <div class="col-lg-3 col-xs-6">
+                            <!-- small box -->
+                            <div class="small-box bg-warning">
+                                <div class="inner">
+                                    <h3>NFC: #@ViewBag.NFC</h3>
+
+                                    <p>NFC's Disponibles</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                    }
+                    else if (ViewBag.NFC == 0)
+                    {
+                        <!-- ./col -->
+                        <div class="col-lg-3 col-xs-6">
+                            <!-- small box -->
+                            <div class="small-box bg-red-active">
+                                <div class="inner">
+                                    <h3>NFC: #@ViewBag.NFC</h3>
+
+                                    <p>NFC's Disponibles</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                    }
+                    else
+                    {
+                        <!-- ./col -->
+                        <div class="col-lg-3 col-xs-6">
+                            <!-- small box -->
+                            <div class="small-box bg-aqua-active">
+                                <div class="inner">
+                                    <h3>NFC: #@ViewBag.NFC</h3>
+
+                                    <p>NFC's Disponibles</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                    }
+
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                <h3>USD$: @ViewBag.TotalGanancias1</h3>
+
+                                <p>Ganancias del mes</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <a href="@Url.Action("RepordeDelMes","contratoes")" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-red">
+                            <div class="inner">
+                                <h3>#@ViewBag.ReservasPendientes</h3>
+
+                                <p>Reservas Pendientes</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-file-signature"></i>
+                            </div>
+                            <a href="@Url.Action("ReservasQueHanCumplido","contratoes")" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-red">
+                            <div class="inner">
+                                <h3>#@ViewBag.ContratosPendientes</h3>
+
+                                <p>Contratos Pendientes</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-file-signature"></i>
+                            </div>
+                            <a href="@Url.Action("ContratosQueHanCumplido","contratoes")" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <!-- ./col -->
+                    <div style="width: 100%; margin-left: 20px;">
+                        <h2>Vehiculos</h2><h6>Control de vehiculos</h6>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                <h3>#@ViewBag.Disponibles</h3>
+
+                                <p>Vehiculos disponibles</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <a href="@Url.Action("VehiculoDisponible","Vehiculoes")" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-red">
+                            <div class="inner">
+                                <h3>#@ViewBag.Rentados</h3>
+
+                                <p>Vehiculos rentados</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-car-side"></i>
+                            </div>
+                            <a href="@Url.Action("VehiculoRentado","Vehiculoes")" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-warning">
+                            <div class="inner">
+                                <h3>#@ViewBag.Mantenimiento</h3>
+
+                                <p>Vehiculos en mantenimiento</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-cog"></i>
+                            </div>
+                            <a href="@Url.Action("VehiculoMantenimiento","Vehiculoes")" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                </div>
+
+            </section>
+
+
+</div>
+
+<!-- AdminLTE App -->
+<script src="~/Content/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="~/Content/dist/js/pages/dashboard.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="~/Content/dist/js/demo.js"></script>

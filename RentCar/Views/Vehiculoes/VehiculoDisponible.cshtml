@@ -7,8 +7,8 @@
 <h2>Vehiculos Disponibles</h2>
 
 
-<table class="table">
-    <tr>
+<table class="table table-striped">
+    <tr class="thead-dark">
         <th>
             @Html.DisplayNameFor(model => model.Marca)
         </th>
@@ -68,15 +68,15 @@
         <td>
             @Html.DisplayFor(modelItem => item.Tarifa)
         </td>
-        <td>
+        <td class="bg bg-success">
             @Html.DisplayFor(modelItem => item.Estatus)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Clasevehiculo.Clase)
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", new { id = item.VehiculoId }) |
-            @Html.ActionLink("Mantenimiento", "Mantenimiento", new { id = item.VehiculoId })
+            @Html.ActionLink("Details", "Details", new { id = item.VehiculoId }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Mantenimiento", "Mantenimiento", new { id = item.VehiculoId }, new { @class = "btn btn-warning" } )
         </td>
     </tr>
 }

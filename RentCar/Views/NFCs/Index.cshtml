@@ -4,13 +4,13 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>NFC'S</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
 </p>
-<table class="table">
-    <tr>
+<table class="table table-striped">
+    <tr class="thead-dark">
         <th>
             @Html.DisplayNameFor(model => model.NFC1)
         </th>
@@ -29,9 +29,7 @@
             @Html.DisplayFor(modelItem => item.Estatus)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idNFC }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idNFC }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idNFC })
+            @Html.ActionLink("Delete", "Delete", new { id=item.idNFC }, new { @class = "btn btn-danger" } )
         </td>
     </tr>
 }

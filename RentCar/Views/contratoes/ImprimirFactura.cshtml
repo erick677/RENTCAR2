@@ -30,23 +30,26 @@
         background-color: beige;
         margin-top: -160px;
     }
+
     .table {
         width: 48%;
         font-size: 20px;
         margin-left: 26%;
     }
+
     .table4 {
         font-size: 20px;
         width: 100%;
     }
-    .left{
-        text-align:left;
-    }
 
+    .left {
+        text-align: left;
+    }
 </style>
 
 
-<a href="@Url.Action("Index","Home")"><img src="~/Content/img/logoRentCar1.png" alt="Alternate Text" class="logo" /></a>
+<a href="@Url.Action("Imprimir1","contratoes", new { id = Model.ContratoId })"><img src="~/Content/img/logoRentCar1.png" alt="Alternate Text" class="logo" /></a>
+
 <div class="InformacionEmpresa">
     <label class="inf">GOLDNET Rent a car</label>
     <label class="inf">RNC:</label><label>   130929092</label><br />

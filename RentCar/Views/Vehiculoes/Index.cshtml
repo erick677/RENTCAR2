@@ -4,13 +4,13 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Vehiculos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
 </p>
-<table class="table">
-    <tr>
+<table class="table table-striped">
+    <tr class="thead-dark">
         <th>
             @Html.DisplayNameFor(model => model.Marca)
         </th>
@@ -77,9 +77,9 @@
             @Html.DisplayFor(modelItem => item.Clasevehiculo.Clase)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.VehiculoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.VehiculoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.VehiculoId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.VehiculoId }, new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Details", "Details", new { id=item.VehiculoId }, new { @class = "btn btn-primary" }) 
+            @Html.ActionLink("Delete", "Delete", new { id=item.VehiculoId }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

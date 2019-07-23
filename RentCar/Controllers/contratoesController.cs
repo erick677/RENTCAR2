@@ -13,7 +13,7 @@ namespace RentCar.Controllers
 {
     public class contratoesController : Controller
     {
-        private rentcar4Entities db = new rentcar4Entities();
+        private rentcar4Entities2 db = new rentcar4Entities2();
 
         // GET: contratoes
         public ActionResult Index()
@@ -21,6 +21,26 @@ namespace RentCar.Controllers
             var contrato = db.contrato.Include(c => c.Clasevehiculo).Include(c => c.Vehiculo);
             return View(contrato.ToList());
         }
+
+        /*------------------------Reporte del mes-------------------------*/
+        public ActionResult RepordeDelMes()
+        {
+            var mes = DateTime.Now.ToString("MM");
+            int fecha = Convert.ToInt32(mes);
+
+
+            var contrato = db.contrato.Where( a => a.Fecha_Inicio.Value.Month == fecha || a.Fecha_Cierre.Value.Month == fecha).Include(c => c.Clasevehiculo).Include(c => c.Vehiculo).ToList();
+            var contratoCerrados = db.contratohistory.Where( a => a.Fecha_Inicio.Value.Month == fecha || a.Fecha_Cierre.Value.Month == fecha ).ToList();
+
+            var Reporte = new ReporteMes
+            {
+                contratos = contrato,
+                contratosCerrados = contratoCerrados
+            };
+
+            return View(Reporte); ;
+        }
+
         /*-----------------Contratos----------------------------------------*/
         public ActionResult ImprimirContrato(int? id)
         {
@@ -74,7 +94,7 @@ namespace RentCar.Controllers
         }
 
         /*--------------------Facturas con comprobante-------------------*/
-        public ActionResult ImprimirFacturaComprobante(int? id, string NFC, string rnc, string nombreEmpresa, string direccionEmpresa)
+        public ActionResult ImprimirFacturaComprobante(int? id, string NFC1, string rnc, string nombreEmpresa, string direccionEmpresa)
         {
             contrato contrato2 = db.contrato.Find(id);
 
@@ -97,28 +117,41 @@ namespace RentCar.Controllers
             {
                 return HttpNotFound();
             }
-            //contrato.NFC = NFC.ToString();
-            //contrato.rnc = rnc.ToString();
-            //contrato.nombreEmpresa = nombreEmpresa.ToString();
-            //contrato.direccionEmpresa = direccionEmpresa.ToString();
+            contrato contrato3 = new contrato();
 
+            ViewBag.NFC1 = NFC1;
+            ViewBag.rnc = rnc;
+            ViewBag.nombreEmpresa = nombreEmpresa;
+            ViewBag.direccionEmpresa = direccionEmpresa;
+            
 
-
-            ViewBag.NFC1 = new SelectList(db.NFC.Where(a => a.Estatus == "Disponible"), "idNFC", "NFC1");
             return View(contrato);
         }
         
-        public ActionResult PdfFacturaComprobante(int? id)
+        public ActionResult PdfFacturaComprobante(int? ContratoId, string NFC1, string rnc, string nombreEmpresa, string direccionEmpresa)
         {
-            return new ActionAsPdf("ImprimirFacturaComprobante", new { id = id });
+            contrato contrato = new contrato();
+
+            ViewBag.NFC1 = NFC1;
+            ViewBag.rnc = rnc;
+            ViewBag.nombreEmpresa = nombreEmpresa;
+            ViewBag.direccionEmpresa = direccionEmpresa;
+
+            string x = Convert.ToString(NFC1);
+            var q = (from a in db.NFC where a.NFC1 == x select a).First();
+            q.Estatus = "No Disponible";
+            db.SaveChanges();
+
+
+            return new ActionAsPdf("ImprimirFacturaComprobante", new { id = ContratoId , ViewBag.NFC1 , ViewBag.rnc, ViewBag.nombreEmpresa, ViewBag.direccionEmpresa});
         }
         /*---------------END Facturas con comprobantes------------*/
 
         public ActionResult DatosComprobante(int? id)
         {
             contrato contrato = db.contrato.Find(id);
-
-            ViewBag.NFC1 = new SelectList(db.NFC.Where(a => a.Estatus == "Disponible"), "idNFC", "NFC1");
+            
+            ViewBag.NFC1 = new SelectList(db.NFC.Where(a => a.Estatus == "Disponible"), "NFC1", "NFC1" );
             return View(contrato);
         }
         
@@ -230,9 +263,14 @@ namespace RentCar.Controllers
                 q.Estatus = "Rentado";
                 db.SaveChanges();
             }
-
+           
             if (ModelState.IsValid)
             {
+                if (contrato.Descuento_Comision == null)
+                {
+                    contrato.Descuento_Comision = 0;
+
+                }
                 db.contrato.Add(contrato);
                 contrato.Estatus = "Abierto";
                 contrato.recargo = 0;
@@ -245,7 +283,71 @@ namespace RentCar.Controllers
             ViewBag.FK_Vehiculo = new SelectList(db.Vehiculo.Where(a => a.Estatus == "Disponible"), "VehiculoId", "Marca", contrato.FK_Vehiculo);
             return View(contrato);
         }
+        public ActionResult Imprimir1(int? id)
+        {
+            Facturas factura = new Facturas();
+            
+            var actionPDF = new Rotativa.ActionAsPdf("ImprimirFactura", new { id = id }) //some route values) 
+            {
+                //FileName = "TestView.pdf", 
 
+
+            };
+            byte[] applicationPDFData = actionPDF.BuildFile(this.ControllerContext);
+            factura.Factura = applicationPDFData;
+            db.Facturas.Add(factura);
+            db.SaveChanges();
+            return actionPDF;
+
+
+        }
+        public ActionResult Imprimir2(int? id, string NFC1, string rnc, string nombreEmpresa, string direccionEmpresa)
+        {
+            Facturas factura = new Facturas();
+            ViewBag.NFC1 = NFC1;
+            ViewBag.rnc = rnc;
+            ViewBag.nombreEmpresa = nombreEmpresa;
+            ViewBag.direccionEmpresa = direccionEmpresa;
+            var actionPDF = new Rotativa.ActionAsPdf("ImprimirFacturaComprobante", new { id = id, ViewBag.NFC1, ViewBag.rnc, ViewBag.nombreEmpresa, ViewBag.direccionEmpresa }); //some route values) 
+            {
+                //FileName = "TestView.pdf", 
+
+
+            };
+            contrato contrato = db.contrato.Find(id);
+
+            factura.CodigoFactura = contrato.Nombre + " " + contrato.Apellido;
+
+           
+            byte[] applicationPDFData = actionPDF.BuildFile(this.ControllerContext);
+            factura.Factura = applicationPDFData;
+            db.Facturas.Add(factura);
+            db.SaveChanges();
+
+            return actionPDF;
+
+
+        }
+
+        public ActionResult detalle(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Facturas contrato = db.Facturas.Find(id);
+            if (contrato == null)
+            {
+                return HttpNotFound();
+            }
+            return File(contrato.Factura, "application/pdf");
+        }
+        public ActionResult MostrarFacturas()
+        {
+            var contrato = db.Facturas;
+
+            return View(contrato.ToList());
+        }
 
         // GET: contratoes/Edit/5
         public ActionResult Edit(int? id)
@@ -341,7 +443,19 @@ namespace RentCar.Controllers
             }
             return View(contrato);
         }
-
+        public ActionResult borrar(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Facturas contrato = db.Facturas.Find(id);
+            if (contrato == null)
+            {
+                return HttpNotFound();
+            }
+            return View(contrato);
+        }
         // POST: contratoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -355,6 +469,18 @@ namespace RentCar.Controllers
             vehiculo.Estatus = "Disponible";
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        [HttpPost, ActionName("borrar")]
+        [ValidateAntiForgeryToken]
+        public ActionResult borrarConfirmed(int id)
+        {
+
+            Facturas contrato = db.Facturas.Find(id);
+          
+            db.Facturas.Remove(contrato);
+           
+            db.SaveChanges();
+            return RedirectToAction("MostrarFacturas");
         }
 
         protected override void Dispose(bool disposing)

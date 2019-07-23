@@ -12,7 +12,7 @@ namespace RentCar.Controllers
 {
     public class VehiculoesController : Controller
     {
-        private rentcar4Entities db = new rentcar4Entities();
+        private rentcar4Entities2 db = new rentcar4Entities2();
 
         public ActionResult Index()
         {

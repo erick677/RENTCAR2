@@ -54,37 +54,37 @@
       <PropertyRef Name="Historialid" />
     </Key>
     <Property Name="Historialid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ContratoId" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="Apellido" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="Pais" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="Ciudad" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="Direccion" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="Telefono" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Licencia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="FK_Vehiculo" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="idClase" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="Combustible_Salida" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-    <Property Name="Combustible_Entrada" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-    <Property Name="Kilometraje_Salida" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="Kilometraje_Entrada" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="costo_dia" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="Cantidad_Dias" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="costo_diasextras" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="Dias_Extras" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="recargo" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="Descuento_Comision" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="subtotal" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="Total" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="FormaPago" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="Contrato" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="Fecha_Inicio" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="Fecha_Cierre" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="Condiciones" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Tipo_Renta" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="Modelo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="Referido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ContratoId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Pais" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Ciudad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Licencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FK_Vehiculo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="idClase" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Combustible_Salida" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Combustible_Entrada" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Kilometraje_Salida" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Kilometraje_Entrada" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="costo_dia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Cantidad_Dias" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="costo_diasextras" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Dias_Extras" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="recargo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Descuento_Comision" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="subtotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Total" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="FormaPago" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Contrato" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha_Inicio" Type="DateTime" Precision="3" />
+    <Property Name="Fecha_Cierre" Type="DateTime" Precision="3" />
+    <Property Name="Condiciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo_Renta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Modelo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Referido" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Facturas">
     <Key>
@@ -200,7 +200,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="rentcar4Entities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="rentcar4Entities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Clasevehiculo" EntityType="Self.Clasevehiculo" />
     <EntitySet Name="contrato" EntityType="Self.contrato" />
     <EntitySet Name="contratohistory" EntityType="Self.contratohistory" />

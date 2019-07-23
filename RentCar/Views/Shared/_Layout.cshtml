@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Punta Cana Destino</title>
+    <title>GOLDNET</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
@@ -69,6 +71,7 @@
                     @Html.ActionLink("Contratos/Reservas", "Index", "contratoes", null, new { @class = "dropdown-item" })
                     @Html.ActionLink("Vehiculos", "Index", "Vehiculoes", null, new { @class = "dropdown-item" })
                     @Html.ActionLink("NFC", "Index", "NFCs", null, new { @class = "dropdown-item" })
+                    @Html.ActionLink("Facturas", "MostrarFacturas", "contratoes", null, new { @class = "dropdown-item" })
 
                 </div>
             </li>
@@ -132,7 +135,7 @@
     @Scripts.Render("~/Content/js/sb-admin.min.js")
     @Scripts.Render("~/Content/js/demo/datatables-demo.js")
     @Scripts.Render("~/Content/js/demo/chart-area-demo.js")
-
+    
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

@@ -37,11 +37,11 @@ namespace RentCar.Models
         public string recargo { get; set; }
         public string Descuento_Comision { get; set; }
         public string subtotal { get; set; }
-        public string Total { get; set; }
+        public Nullable<decimal> Total { get; set; }
         public string FormaPago { get; set; }
         public string Contrato { get; set; }
-        public string Fecha_Inicio { get; set; }
-        public string Fecha_Cierre { get; set; }
+        public Nullable<System.DateTime> Fecha_Inicio { get; set; }
+        public Nullable<System.DateTime> Fecha_Cierre { get; set; }
         public string Condiciones { get; set; }
         public string Tipo_Renta { get; set; }
         public string Modelo { get; set; }

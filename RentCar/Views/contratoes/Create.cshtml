@@ -133,6 +133,28 @@
         </div>
     </div>
     <div class="form-group">
+        @Html.LabelFor(model => model.Fecha_Inicio, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="datetime-local" @Html.EditorFor(model => model.Fecha_Inicio, new { htmlAttributes = new { @class = "form-control" } })
+                   @Html.ValidationMessageFor(model => model.Fecha_Inicio, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Fecha_Cierre, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="datetime-local" @Html.EditorFor(model => model.Fecha_Cierre, new { htmlAttributes = new { @class = "form-control" } })
+                   @Html.ValidationMessageFor(model => model.Fecha_Cierre, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Cantidad_Dias, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Cantidad_Dias, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.Cantidad_Dias, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
         @Html.LabelFor(model => model.costo_dia, "Costo_Día", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(model => model.costo_dia, new SelectList(" "), "---Costo Por Día---", htmlAttributes: new { @class = "form-control" })
@@ -141,13 +163,7 @@
             @Html.ValidationMessageFor(model => model.costo_dia, "", new { @class = "text-danger" })
         </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Cantidad_Dias, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Cantidad_Dias, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Cantidad_Dias, "", new { @class = "text-danger" })
-        </div>
-    </div>
+
     <div class="form-group">
         @Html.LabelFor(model => model.costo_diasextras, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -210,21 +226,7 @@
             @Html.ValidationMessageFor(model => model.Contrato1, "", new { @class = "text-danger" })
         </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Fecha_Inicio, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <input type="datetime-local" @Html.EditorFor(model => model.Fecha_Inicio, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Fecha_Inicio, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Fecha_Cierre, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <input type="datetime-local" @Html.EditorFor(model => model.Fecha_Cierre, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Fecha_Cierre, "", new { @class = "text-danger" })
-        </div>
-    </div>
     <div class="form-group">
         @Html.LabelFor(model => model.Condiciones, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -354,6 +356,56 @@
                 var t = parseInt(s) - parseInt(m);
                 document.getElementById("Total").value = t;
             }
+
+        })
+    });
+    $(document).ready(function () {
+        $("#Fecha_Cierre").change(function () {
+            var m = new Date(document.getElementById("Fecha_Cierre").value);
+            var s = new Date(document.getElementById("Fecha_Inicio").value);
+            var t = m.getTime() - s.getTime();
+            var cantidaddias = Math.round(t / (1000 * 60 * 60 * 24));
+             
+                document.getElementById("Cantidad_Dias").value = cantidaddias;
+               
+            var m = document.getElementById("costo_dia").value;
+            var s = document.getElementById("Cantidad_Dias").value;
+            if (s == 0 || m == 0) {
+                document.getElementById("subtotal").value = 0;
+                document.getElementById("Total").value = 0;
+
+            } else {
+                var t = parseInt(m) * parseInt(s);
+                document.getElementById("subtotal").value = t;
+                document.getElementById("Total").value = t;
+
+            }
+            
+
+        })
+    });
+    $(document).ready(function () {
+        $("#Fecha_Inicio").change(function () {
+            var m = new Date(document.getElementById("Fecha_Cierre").value);
+            var s = new Date(document.getElementById("Fecha_Inicio").value);
+            var t = m.getTime() - s.getTime();
+            var cantidaddias = Math.round(t / (1000 * 60 * 60 * 24));
+
+            document.getElementById("Cantidad_Dias").value = cantidaddias;
+            var m = document.getElementById("costo_dia").value;
+            var s = document.getElementById("Cantidad_Dias").value;
+            if (s == 0 || m == 0) {
+                document.getElementById("subtotal").value = 0;
+                document.getElementById("Total").value = 0;
+
+            } else {
+                var t = parseInt(m) * parseInt(s);
+                document.getElementById("subtotal").value = t;
+                document.getElementById("Total").value = t;
+
+            }
+
+
 
         })
     });

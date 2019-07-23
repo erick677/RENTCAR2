@@ -6,8 +6,8 @@
 
 <h2>Vehiculos En Mantenimiento</h2>
 
-<table class="table">
-    <tr>
+<table class="table table-striped">
+    <tr class="thead-dark">
         <th>
             @Html.DisplayNameFor(model => model.Marca)
         </th>
@@ -24,9 +24,6 @@
             @Html.DisplayNameFor(model => model.Año)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.idClase)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Combustible)
         </th>
         <th>
@@ -38,47 +35,50 @@
         <th>
             @Html.DisplayNameFor(model => model.Estatus)
         </th>
+        <th>
+            @Html.DisplayName( "Clase" )
+        </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Marca)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Modelo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Placa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Chasis)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Año)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.idClase)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Combustible)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Kilometraje)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tarifa)
-            </td>
-            <td class="btn bg-danger">
-                @Html.DisplayFor(modelItem => item.Estatus)
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = item.VehiculoId }) |
-                @Html.ActionLink("Disponible", "Disponible", new { id = item.VehiculoId })
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Placa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Chasis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Año)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Combustible)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kilometraje)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tarifa)
+        </td>
+        <td class="bg bg-warning">
+            @Html.DisplayFor(modelItem => item.Estatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clasevehiculo.Clase)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.VehiculoId }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Disponible", "Disponible", new { id = item.VehiculoId }, new { @class = "btn btn-success" })
+        </td>
+    </tr>
     }
 
 </table>
